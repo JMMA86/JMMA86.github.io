@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Epilogo - Conclusiones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <div class="instructions">Usa las flechas ← → o la rueda para navegar</div>
+  <div class="slide-container">
+    <div class="slide slide-content">
+      <h2>CONCLUSIONES</h2>
+
+      <div class="two-columns">
+        <div class="column">
+          <h3>Limitaciones Identificadas</h3>
+          <ul>
+            <li><strong>Dataset insuficiente:</strong> Las variables estaticas preoperatorias disponibles (comorbilidades, edad, hemoglobina) no son suficientes para prediccion robusta del shock hemorragico con estandares clinicos requeridos.</li>
+            <li><strong>AUC-ROC 0.639:</strong> Moderado. Aunque inferior al ideal (>0.80), el Recall de 86.5% cumple el objetivo clinico prioritario.</li>
+            <li><strong>Variables temporales faltantes:</strong> Se necesitan datos continuos pre, intra y postquirurgicos (signos vitales en tiempo real, tendencias de PA, FC, SpO2).</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h3>Logro Real del Proyecto</h3>
+          <ul>
+            <li><strong>Arquitectura robusta y parametrizable:</strong> Framework de experimentacion validado con multiples algoritmos (7 modelos), 4 fases iterativas, metodologias estandarizadas (CRISP-DM, TRIPOD).</li>
+            <li><strong>Pipeline escalable:</strong> Sistema modular que permite facil integracion de nuevas variables y algoritmos sin rediseno completo.</li>
+            <li><strong>Base solida:</strong> Infraestructura lista para futuras iteraciones cuando se obtengan datos temporales y multivariados.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="conclusions-box">
+        <h3>Conclusion Principal</h3>
+        <p>
+          El dataset actual <strong>no permite</strong> prediccion clinicamente robusta del shock hemorragico.
+          Sin embargo, hemos desarrollado una <strong>arquitectura de experimentacion robusta, parametrizable
+          y escalable</strong> que constituye la base fundamental para futuros desarrollos con datos mas completos.
+        </p>
+      </div>
+      <div class="page-number">23</div>
+    </div>
+  </div>
+  <div class="navigation" id="navigation"></div>
+  <script src="./assets/presentation.js"></script>
+</body>
+</html>

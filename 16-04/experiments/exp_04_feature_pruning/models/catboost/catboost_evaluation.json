@@ -1,0 +1,40 @@
+{
+  "accuracy": 0.7022900763358778,
+  "precision": 0.6363636363636364,
+  "recall": 0.16666666666666666,
+  "specificity": 0.9550561797752809,
+  "f1_score": 0.2641509433962264,
+  "kappa": 0.1511879049676027,
+  "confusion_matrix": {
+    "tn": 85,
+    "fp": 4,
+    "fn": 35,
+    "tp": 7
+  },
+  "n_samples": 131,
+  "n_positive": 42,
+  "n_negative": 89,
+  "roc_auc": 0.5807918673087212,
+  "average_precision": 0.48488321711375026,
+  "optimal_threshold": 0.2683837017161095,
+  "optimal_sensitivity": 0.6666666666666666,
+  "optimal_specificity": 0.4044943820224719,
+  "dataset": "test",
+  "timestamp": "2026-04-16T07:41:19.218873",
+  "optimal_threshold_results": {
+    "threshold": 0.23000000000000004,
+    "accuracy": 0.42748091603053434,
+    "precision": 0.32989690721649484,
+    "recall": 0.7619047619047619,
+    "specificity": 0.2696629213483146,
+    "f1_score": 0.460431654676259,
+    "kappa": 0.023456912831726684,
+    "confusion_matrix": {
+      "tn": 24,
+      "fp": 65,
+      "fn": 10,
+      "tp": 32
+    }
+  },
+  "model_name": "catboost"
+}

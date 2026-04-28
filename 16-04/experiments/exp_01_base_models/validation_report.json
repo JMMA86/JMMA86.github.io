@@ -1,0 +1,10 @@
+{
+  "total_records": 1324,
+  "invalid_records": 17,
+  "invalid_percentage": 1.283987915407855,
+  "binary_variable_issues": {
+    "FALLA_CARDIACA": 6,
+    "TABAQUISMO": 11
+  },
+  "numeric_range_issues": {}
+}

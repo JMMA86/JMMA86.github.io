@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exp 4 Feature Pruning - Actualizado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../slides/experiments/assets/styles.css" />
+</head>
+<body>
+  <div class="instructions">Usa las flechas ← → o la rueda para navegar</div>
+  <div class="slide-container">
+    <div class="slide slide-content">
+      <div class="section-header">Fase · Fase 4</div>
+      <h2>EXPERIMENTO 4 - FEATURE PRUNING</h2>
+      <p class="subtitle-section">Objetivo: eliminar features de baja importancia (threshold=0.01) para simplificar modelos</p>
+
+      <table class="results-table">
+        <thead>
+          <tr><th>Modelo</th><th>AUC ROC</th><th>Brier Score</th><th>Δ vs Exp2</th><th>Posicion</th></tr>
+        </thead>
+        <tbody>
+          <tr class="highlight-best"><td>catboost</td><td>0.6237</td><td>0.2126</td><td>+0.0045</td><td>1</td></tr>
+          <tr><td>logistic_regression_lasso</td><td>0.6067</td><td>0.2111</td><td>+0.0012</td><td>2</td></tr>
+          <tr><td>xgboost</td><td>0.6038</td><td>0.2462</td><td>-0.0007</td><td>3</td></tr>
+          <tr><td>lightgbm</td><td>0.5995</td><td>0.2388</td><td>0.0000</td><td>4</td></tr>
+          <tr><td>random_forest</td><td>0.5803</td><td>0.2438</td><td>-0.0065</td><td>5</td></tr>
+          <tr><td>naive_bayes</td><td>0.5699</td><td>0.2649</td><td>+0.0042</td><td>6</td></tr>
+          <tr><td>decision_tree</td><td>0.5534</td><td>0.3795</td><td>-0.0034</td><td>7</td></tr>
+        </tbody>
+      </table>
+
+      <div class="image-grid">
+        <div class="image-card">
+          <h4>ROC comparativa (Exp 4)</h4>
+          <img src="exp_04_feature_pruning/comparison_plots/roc_comparison.png" alt="ROC exp4" />
+        </div>
+        <div class="image-card">
+          <h4>Calibracion comparativa (Exp 4)</h4>
+          <img src="exp_04_feature_pruning/comparison_plots/calibration_comparison.png" alt="Calibration exp4" />
+        </div>
+      </div>
+
+      <div class="image-grid">
+        <div class="image-card">
+          <h4>Feature importance - catboost</h4>
+          <img src="exp_04_feature_pruning/models/catboost/plots/feature_importance.png" alt="FI catboost exp4" />
+        </div>
+        <div class="image-card">
+          <h4>SHAP Summary - catboost</h4>
+          <img src="exp_04_feature_pruning/models/catboost/plots/shap_summary.png" alt="SHAP summary catboost" />
+        </div>
+      </div>
+
+      <div class="conclusions-box">
+        <h3>Lectura</h3>
+        <p>CatBoost alcanza mejor score hasta ahora: 0.6237 (+0.45% vs Exp2). Pruning elimino features ruidosas sin perder señal. Top features: EDAD (39.02%), HB_PREQX (28.55%), SANGRADO_MAYOR (7.90%). Features agregadas mantienen aporte: SINDROME_METABOLICO (5.22%), CARGA_CARDIOVASCULAR (2.91%). Simplificacion mejora generalizacion.</p>
+      </div>
+
+      <div class="source-box">Graficas actualizadas desde exp_04_feature_pruning - modelo catboost - plot_metadata.json</div>
+      <div class="page-number">4</div>
+    </div>
+  </div>
+  <div class="navigation" id="navigation"></div>
+  <script src="../slides/experiments/assets/presentation.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exp 5 Hyperparameter Search - Actualizado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../slides/experiments/assets/styles.css" />
+</head>
+<body>
+  <div class="instructions">Usa las flechas ← → o la rueda para navegar</div>
+  <div class="slide-container">
+    <div class="slide slide-content">
+      <div class="section-header">Fase · Fase 5</div>
+      <h2>EXPERIMENTO 5 - HYPERPARAMETER SEARCH</h2>
+      <p class="subtitle-section">Objetivo: optimizar hiperparametros via RandomizedSearchCV (100 iteraciones)</p>
+
+      <table class="results-table">
+        <thead>
+          <tr><th>Modelo</th><th>AUC ROC</th><th>Brier Score</th><th>Δ vs Exp4</th><th>Posicion</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>random_forest</td><td>0.6407</td><td>0.2289</td><td>+0.0604</td><td>1</td></tr>
+          <tr class="highlight-best"><td>lightgbm</td><td>0.6384</td><td>0.2063</td><td>+0.0390</td><td>2</td></tr>
+          <tr><td>xgboost</td><td>0.6371</td><td>0.2070</td><td>+0.0333</td><td>3</td></tr>
+          <tr><td>decision_tree</td><td>0.6367</td><td>0.2117</td><td>+0.0833</td><td>4</td></tr>
+          <tr><td>catboost</td><td>0.6215</td><td>0.2083</td><td>-0.0022</td><td>5</td></tr>
+          <tr><td>logistic_regression_lasso</td><td>0.6068</td><td>0.2396</td><td>+0.0001</td><td>6</td></tr>
+          <tr><td>naive_bayes</td><td>0.5707</td><td>0.2598</td><td>+0.0008</td><td>7</td></tr>
+        </tbody>
+      </table>
+
+      <div class="image-grid">
+        <div class="image-card">
+          <h4>ROC comparativa (Exp 5)</h4>
+          <img src="exp_05_hyperparameter_search/comparison_plots/roc_comparison.png" alt="ROC exp5" />
+        </div>
+        <div class="image-card">
+          <h4>Calibracion comparativa (Exp 5)</h4>
+          <img src="exp_05_hyperparameter_search/comparison_plots/calibration_comparison.png" alt="Calibration exp5" />
+        </div>
+      </div>
+
+      <div class="image-grid">
+        <div class="image-card">
+          <h4>Feature importance - random_forest (ganador)</h4>
+          <img src="exp_05_hyperparameter_search/models/random_forest/plots/feature_importance.png" alt="FI RF exp5" />
+        </div>
+        <div class="image-card">
+          <h4>Decision Tree Structure (optimizado)</h4>
+          <img src="exp_05_hyperparameter_search/models/decision_tree/plots/decision_tree_full.png" alt="Tree structure exp5" />
+        </div>
+      </div>
+
+      <div class="image-grid">
+        <div class="image-card">
+          <h4>SHAP Summary - random_forest</h4>
+          <img src="exp_05_hyperparameter_search/models/random_forest/plots/shap_summary.png" alt="SHAP summary RF" />
+        </div>
+        <div class="image-card">
+          <h4>SHAP Summary - decision_tree</h4>
+          <img src="exp_05_hyperparameter_search/models/decision_tree/plots/shap_summary.png" alt="SHAP summary DT" />
+        </div>
+      </div>
+
+      <div class="conclusions-box">
+        <h3>Lectura</h3>
+        <p>Hyperparameter search genera mejoras dramaticas. Random Forest sube a 0.6407 (+6.04% vs Exp4), LightGBM 0.6384 con mejor Brier 0.2063. Decision Tree optimizado salta a 0.6367 (+8.33%), depth=7, 27 hojas. Top features consistentes: EDAD (49-53%), HB_PREQX (25-28%), SANGRADO_MAYOR (15-24%). Tuning desbloquea performance latente en modelos simples.</p>
+      </div>
+
+      <div class="source-box">Graficas actualizadas desde exp_05_hyperparameter_search - modelos random_forest y decision_tree - plot_metadata.json</div>
+      <div class="page-number">5</div>
+    </div>
+  </div>
+  <div class="navigation" id="navigation"></div>
+  <script src="../slides/experiments/assets/presentation.js"></script>
+</body>
+</html>

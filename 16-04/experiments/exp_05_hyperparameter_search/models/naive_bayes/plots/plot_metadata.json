@@ -1,0 +1,105 @@
+{
+  "experiment": "exp_05_hyperparameter_search",
+  "model_name": "naive_bayes",
+  "plots": {
+    "roc_curve_cv": {
+      "description": "ROC Curve based on Train CV validation probabilities",
+      "path": "roc_curve_cv.png",
+      "metrics": {
+        "roc_auc": 0.5839796094008607
+      }
+    },
+    "calibration_curve_cv": {
+      "description": "Calibration curve based on Train CV validation probabilities",
+      "path": "calibration_curve_cv.png",
+      "metrics": {
+        "brier_score": 0.2627274486907023
+      }
+    },
+    "precision_recall": {
+      "description": "Precision-Recall curve on Test set",
+      "path": "precision_recall_curve.png",
+      "metrics": {
+        "average_precision": 0.4697177568681883
+      }
+    },
+    "decision_threshold": {
+      "description": "Decision threshold curve on Test set highlighting optimal choice",
+      "path": "threshold_analysis.png",
+      "metrics": {
+        "optimal_threshold": 0.2
+      }
+    },
+    "perf_precision_npv": {
+      "description": "Grouped bar plot without space comparing Precision and NPV from Operating Point",
+      "path": "perf_precision_npv.png",
+      "metrics": {
+        "precision": 0.37763713080168776,
+        "npv": 0.717948717948718
+      }
+    },
+    "perf_recall_specificity": {
+      "description": "Grouped bar plot without space comparing Recall and Specificity from Operating Point",
+      "path": "perf_recall_specificity.png",
+      "metrics": {
+        "recall": 0.47480106100795755,
+        "specificity": 0.6307884856070087
+      }
+    },
+    "perf_f1_f2": {
+      "description": "Grouped bar plot without space comparing F1 and F2 from Operating Point",
+      "path": "perf_f1_f2.png",
+      "metrics": {
+        "f1_score": 0.4206815511163337,
+        "f2_score": 0.4515640766902119
+      }
+    },
+    "accuracy": {
+      "description": "Single bar plot for isolated accuracy from operating point",
+      "path": "accuracy.png",
+      "metrics": {
+        "accuracy": 0.58078231292517
+      }
+    },
+    "kappa": {
+      "description": "Single bar plot for isolated kappa from operating point",
+      "path": "kappa.png",
+      "metrics": {
+        "kappa": 0.0988715844446516
+      }
+    },
+    "confusion_matrix": {
+      "description": "Confusion matrix with percentages using optimal threshold",
+      "path": "confusion_matrix_normalized.png",
+      "metrics": {
+        "counts": {
+          "tp": 179,
+          "fp": 295,
+          "tn": 504,
+          "fn": 198
+        },
+        "percentages": {
+          "tn_pct": 63.08,
+          "fp_pct": 36.92,
+          "fn_pct": 52.52,
+          "tp_pct": 47.48
+        }
+      }
+    },
+    "roc_boxplot_cv": {
+      "description": "Boxplot showing ROC-AUC distribution across CV folds",
+      "path": "cv_fold_plots/cv_fold_roc_auc.png",
+      "metrics": {
+        "mean": 0.5839796094008607,
+        "std": 0.04247908227926773,
+        "folds": [
+          0.5583881578947367,
+          0.5251666666666667,
+          0.644625,
+          0.5740833333333334,
+          0.6176348891095664
+        ]
+      }
+    }
+  }
+}

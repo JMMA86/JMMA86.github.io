@@ -1,0 +1,239 @@
+% Auto-generated annex from experiment metadata JSON
+\subsection*{Anexo tecnico de metricas por modelo}
+\addcontentsline{toc}{subsection}{Anexo tecnico de metricas por modelo}
+Este anexo consolida metricas detalladas por modelo y experimento, variables descartadas en pruning, hiperparametros optimos de la fase 5, importancia de caracteristicas en fases 2 y 3, y el arbol de decision final.
+
+\subsubsection*{Experimento 1 (Baseline): metricas detalladas}
+\begin{table}[H]
+\centering
+\caption{Resumen de discriminacion y calibracion - Experimento 1 (Baseline)}
+\scriptsize
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Modelo} & \textbf{AUC-ROC CV} & \textbf{Brier} & \textbf{Threshold} \\ \hline
+catboost & 0.6153 & 0.2134 & 0.2200 \\ \hline
+decision\_tree & 0.5557 & 0.3836 & 0.2000 \\ \hline
+lightgbm & 0.5943 & 0.2394 & 0.2000 \\ \hline
+logistic\_regression\_lasso & 0.6055 & 0.2122 & 0.2500 \\ \hline
+naive\_bayes & 0.5713 & 0.5993 & 0.2500 \\ \hline
+random\_forest & 0.5856 & 0.2444 & 0.2000 \\ \hline
+xgboost & 0.5950 & 0.2476 & 0.2000 \\ \hline
+\end{tabular}
+\end{table}
+\begin{table}[H]
+\centering
+\caption{Resumen de punto operativo - Experimento 1 (Baseline)}
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Modelo} & \textbf{Recall} & \textbf{Specificity} & \textbf{F1} & \textbf{Kappa} \\ \hline
+catboost & 0.8090 & 0.2991 & 0.4911 & 0.0806 \\ \hline
+decision\_tree & 0.4111 & 0.6909 & 0.3995 & 0.1002 \\ \hline
+lightgbm & 0.6897 & 0.4330 & 0.4771 & 0.0993 \\ \hline
+logistic\_regression\_lasso & 0.8196 & 0.2991 & 0.4960 & 0.0883 \\ \hline
+naive\_bayes & 0.8594 & 0.1564 & 0.4713 & 0.0111 \\ \hline
+random\_forest & 0.7056 & 0.4093 & 0.4770 & 0.0917 \\ \hline
+xgboost & 0.7003 & 0.4606 & 0.4925 & 0.1315 \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Experimento 2 (Agregaciones): metricas detalladas}
+\begin{table}[H]
+\centering
+\caption{Resumen de discriminacion y calibracion - Experimento 2 (Agregaciones)}
+\scriptsize
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Modelo} & \textbf{AUC-ROC CV} & \textbf{Brier} & \textbf{Threshold} \\ \hline
+catboost & 0.6192 & 0.2133 & 0.2200 \\ \hline
+decision\_tree & 0.5592 & 0.3816 & 0.2000 \\ \hline
+lightgbm & 0.5995 & 0.2388 & 0.2000 \\ \hline
+logistic\_regression\_lasso & 0.6055 & 0.2122 & 0.2500 \\ \hline
+naive\_bayes & 0.5657 & 0.5986 & 0.5000 \\ \hline
+random\_forest & 0.5907 & 0.2421 & 0.5000 \\ \hline
+xgboost & 0.6045 & 0.2453 & 0.2000 \\ \hline
+\end{tabular}
+\end{table}
+\begin{table}[H]
+\centering
+\caption{Resumen de punto operativo - Experimento 2 (Agregaciones)}
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Modelo} & \textbf{Recall} & \textbf{Specificity} & \textbf{F1} & \textbf{Kappa} \\ \hline
+catboost & 0.8143 & 0.3091 & 0.4939 & 0.0854 \\ \hline
+decision\_tree & 0.4058 & 0.6921 & 0.3943 & 0.0964 \\ \hline
+lightgbm & 0.7029 & 0.4318 & 0.4813 & 0.1045 \\ \hline
+logistic\_regression\_lasso & 0.8064 & 0.2929 & 0.4880 & 0.0738 \\ \hline
+naive\_bayes & -- & -- & -- & -- \\ \hline
+random\_forest & -- & -- & -- & -- \\ \hline
+xgboost & 0.6843 & 0.4631 & 0.4817 & 0.1211 \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Experimento 3 (Categorizaciones): metricas detalladas}
+\begin{table}[H]
+\centering
+\caption{Resumen de discriminacion y calibracion - Experimento 3 (Categorizaciones)}
+\scriptsize
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Modelo} & \textbf{AUC-ROC CV} & \textbf{Brier} & \textbf{Threshold} \\ \hline
+catboost & 0.6134 & 0.2148 & 0.2200 \\ \hline
+decision\_tree & 0.5570 & 0.3836 & 0.2000 \\ \hline
+lightgbm & 0.5934 & 0.2392 & 0.2000 \\ \hline
+logistic\_regression\_lasso & 0.6037 & 0.2125 & 0.2500 \\ \hline
+naive\_bayes & 0.5741 & 0.5972 & 0.2900 \\ \hline
+random\_forest & 0.5813 & 0.2452 & 0.2000 \\ \hline
+xgboost & 0.5950 & 0.2476 & 0.2000 \\ \hline
+\end{tabular}
+\end{table}
+\begin{table}[H]
+\centering
+\caption{Resumen de punto operativo - Experimento 3 (Categorizaciones)}
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Modelo} & \textbf{Recall} & \textbf{Specificity} & \textbf{F1} & \textbf{Kappa} \\ \hline
+catboost & 0.8143 & 0.2979 & 0.4932 & 0.0835 \\ \hline
+decision\_tree & 0.4058 & 0.7046 & 0.3995 & 0.1095 \\ \hline
+lightgbm & 0.7003 & 0.4293 & 0.4813 & 0.1045 \\ \hline
+logistic\_regression\_lasso & 0.8090 & 0.3004 & 0.4915 & 0.0816 \\ \hline
+naive\_bayes & 0.8568 & 0.1640 & 0.4722 & 0.0145 \\ \hline
+random\_forest & 0.7109 & 0.4005 & 0.4794 & 0.0947 \\ \hline
+xgboost & 0.7003 & 0.4606 & 0.4925 & 0.1315 \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Experimento 4 (Pruning): metricas detalladas}
+\begin{table}[H]
+\centering
+\caption{Resumen de discriminacion y calibracion - Experimento 4 (Pruning)}
+\scriptsize
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Modelo} & \textbf{AUC-ROC CV} & \textbf{Brier} & \textbf{Threshold} \\ \hline
+catboost & 0.6237 & 0.2126 & 0.2300 \\ \hline
+decision\_tree & 0.5598 & 0.3795 & 0.2000 \\ \hline
+lightgbm & 0.5995 & 0.2388 & 0.2000 \\ \hline
+logistic\_regression\_lasso & 0.6067 & 0.2111 & 0.2500 \\ \hline
+naive\_bayes & 0.5699 & 0.2649 & 0.2000 \\ \hline
+random\_forest & 0.5847 & 0.2438 & 0.2000 \\ \hline
+xgboost & 0.6038 & 0.2462 & 0.2000 \\ \hline
+\end{tabular}
+\end{table}
+\begin{table}[H]
+\centering
+\caption{Resumen de punto operativo - Experimento 4 (Pruning)}
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Modelo} & \textbf{Recall} & \textbf{Specificity} & \textbf{F1} & \textbf{Kappa} \\ \hline
+catboost & 0.8011 & 0.3342 & 0.4996 & 0.1024 \\ \hline
+decision\_tree & 0.4271 & 0.6859 & 0.4081 & 0.1102 \\ \hline
+lightgbm & 0.7029 & 0.4418 & 0.4863 & 0.1173 \\ \hline
+logistic\_regression\_lasso & 0.8249 & 0.2628 & 0.4988 & 0.0883 \\ \hline
+naive\_bayes & 0.6711 & 0.3917 & 0.4534 & 0.0501 \\ \hline
+random\_forest & 0.7162 & 0.4043 & 0.4809 & 0.0957 \\ \hline
+xgboost & 0.6897 & 0.4719 & 0.4906 & 0.1329 \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Experimento 5 (Hiperparametros): metricas detalladas}
+\begin{table}[H]
+\centering
+\caption{Resumen de discriminacion y calibracion - Experimento 5 (Hiperparametros)}
+\scriptsize
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Modelo} & \textbf{AUC-ROC CV} & \textbf{Brier} & \textbf{Threshold} \\ \hline
+catboost & 0.6215 & 0.2083 & 0.2400 \\ \hline
+decision\_tree & 0.6354 & 0.2117 & 0.2200 \\ \hline
+lightgbm & 0.6384 & 0.2063 & 0.2400 \\ \hline
+logistic\_regression\_lasso & 0.6068 & 0.2396 & 0.4200 \\ \hline
+naive\_bayes & 0.5707 & 0.2598 & 0.2000 \\ \hline
+random\_forest & 0.6404 & 0.2289 & 0.3800 \\ \hline
+xgboost & 0.6371 & 0.2070 & 0.2400 \\ \hline
+\end{tabular}
+\end{table}
+\begin{table}[H]
+\centering
+\caption{Resumen de punto operativo - Experimento 5 (Hiperparametros)}
+\scriptsize
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Modelo} & \textbf{Recall} & \textbf{Specificity} & \textbf{F1} & \textbf{Kappa} \\ \hline
+catboost & 0.8488 & 0.2716 & 0.5004 & 0.0880 \\ \hline
+decision\_tree & 0.8568 & 0.3154 & 0.5180 & 0.1280 \\ \hline
+lightgbm & 0.8700 & 0.2278 & 0.4962 & 0.0700 \\ \hline
+logistic\_regression\_lasso & 0.8037 & 0.3191 & 0.4951 & 0.0924 \\ \hline
+naive\_bayes & 0.6897 & 0.3554 & 0.4514 & 0.0353 \\ \hline
+random\_forest & 0.8196 & 0.3567 & 0.5150 & 0.1344 \\ \hline
+xgboost & 0.8594 & 0.3004 & 0.5143 & 0.1180 \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Experimento 5 (Hiperparametros): calibracion comparativa}
+
+La calibracion probabilistica mide la concordancia entre las probabilidades predichas y las frecuencias observadas. La metrica Brier (rango 0-1, menor es mejor) cuantifica el error cuadratico medio entre predicciones y outcomes binarios. Valores cercanos a 0 indican predicciones bien calibradas.
+
+\begin{table}[H]
+\centering
+\caption{Metricas de calibracion - Top 4 modelos Experimento 5}
+\scriptsize
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Modelo} & \textbf{Brier Score} & \textbf{Interpretacion} \\ \hline
+xgboost & 0.2070 & Mejor calibracion (error cuadratico bajo) \\ \hline
+lightgbm & 0.2063 & Calibracion optima \\ \hline
+catboost & 0.2083 & Calibracion competitiva \\ \hline
+decision\_tree & 0.2117 & Calibracion aceptable \\ \hline
+random\_forest & 0.2289 & Calibracion moderada \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Analisis:} Aunque random\_forest lidera en AUC-ROC (0.6404), lightgbm y xgboost presentan mejor calibracion probabilistica (Brier $\approx$ 0.206-0.207). Decision\_tree mantiene calibracion aceptable (0.2117) con maxima interpretabilidad. El trade-off entre discriminacion (AUC) y calibracion (Brier) sugiere que random\_forest prioriza separacion de clases sobre precision probabilistica.
+
+\subsubsection*{Experimento 5 (Hiperparametros): parametros optimos por modelo}
+\begin{table}[H]
+\centering
+\caption{Parametros optimos (optimized\_params) en Experimento 5}
+\scriptsize
+\begin{tabular}{|l|p{10.5cm}|}
+\hline
+\textbf{Modelo} & \textbf{Parametros optimos} \\ \hline
+catboost & verbose=0, iterations=100, learning\_rate=0.01, depth=5, l2\_leaf\_reg=1, auto\_class\_weights=None \\ \hline
+decision\_tree & max\_depth=7, min\_samples\_split=10, min\_samples\_leaf=20, criterion=gini, class\_weight=None \\ \hline
+lightgbm & verbosity=-1, n\_estimators=100, learning\_rate=0.01, max\_depth=5, num\_leaves=31, min\_child\_samples=20, subsample=1, colsample\_bytree=1, scale\_pos\_weight=2 \\ \hline
+logistic\_regression\_lasso & penalty=l2, solver=lbfgs, max\_iter=10000, C=0.001, class\_weight=None \\ \hline
+naive\_bayes & var\_smoothing=0.1 \\ \hline
+random\_forest & n\_jobs=-1, n\_estimators=300, max\_depth=5, min\_samples\_split=10, min\_samples\_leaf=20, max\_features=None, class\_weight=balanced \\ \hline
+xgboost & verbosity=0, n\_estimators=500, max\_depth=7, learning\_rate=0.01, subsample=1, colsample\_bytree=0.6, scale\_pos\_weight=3, gamma=5, reg\_alpha=0, reg\_lambda=1 \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Importancia de caracteristicas por modelo (Experimentos 2, 3 y 5)}
+Para cada modelo se reporta el top 3 de importancia cuando el artefacto esta disponible en \texttt{plot\_metadata.json}. En modelos sin importancia embebida se marca como No aplica.
+\begin{table}[H]
+\centering
+\caption{Top 3 de importancia de caracteristicas en Experimentos 2, 3 y 5}
+\scriptsize
+\begin{tabular}{|l|l|p{8.5cm}|}
+\hline
+\textbf{Experimento} & \textbf{Modelo} & \textbf{Top 3 caracteristicas (pct)} \\ \hline
+Experimento 2 (Agregaciones) & catboost & HB\_PREQX (26.83\%), EDAD2 (21.34\%), EDAD (20.75\%) \\ \hline
+Experimento 2 (Agregaciones) & decision\_tree & HB\_PREQX (35.30\%), EDAD (22.49\%), EDAD2 (16.24\%) \\ \hline
+Experimento 2 (Agregaciones) & lightgbm & HB\_PREQX (44.60\%), EDAD (39.07\%), GENERO (3.43\%) \\ \hline
+Experimento 2 (Agregaciones) & random\_forest & HB\_PREQX (40.91\%), EDAD (20.64\%), EDAD2 (19.43\%) \\ \hline
+Experimento 2 (Agregaciones) & xgboost & SANGRADO\_MAYOR (26.68\%), HIPERTENSION (7.11\%), ACT\_FISICA\_METS (6.08\%) \\ \hline
+Experimento 3 (Categorizaciones) & catboost & EDAD (36.92\%), HB\_PREQX (24.89\%), SANGRADO\_MAYOR (9.03\%) \\ \hline
+Experimento 3 (Categorizaciones) & decision\_tree & EDAD (38.69\%), HB\_PREQX (36.01\%), GENERO (5.87\%) \\ \hline
+Experimento 3 (Categorizaciones) & lightgbm & HB\_PREQX (45.03\%), EDAD (42.43\%), GENERO (3.37\%) \\ \hline
+Experimento 3 (Categorizaciones) & random\_forest & EDAD (38.72\%), HB\_PREQX (36.36\%), SANGRADO\_MAYOR (4.20\%) \\ \hline
+Experimento 3 (Categorizaciones) & xgboost & SANGRADO\_MAYOR (28.88\%), CANCER\_ACTIVO (9.05\%), HIPOTIROIDISMO (7.64\%) \\ \hline
+Experimento 5 (Hiperparametros) & random\_forest & EDAD (52.71\%), HB\_PREQX (27.93\%), SANGRADO\_MAYOR (15.36\%) \\ \hline
+Experimento 5 (Hiperparametros) & decision\_tree & EDAD (49.66\%), HB\_PREQX (24.51\%), SANGRADO\_MAYOR (24.19\%) \\ \hline
+Experimento 5 (Hiperparametros) & lightgbm & EDAD (52.25\%), HB\_PREQX (36.59\%), SANGRADO\_MAYOR (7.39\%) \\ \hline
+Experimento 5 (Hiperparametros) & xgboost & SANGRADO\_MAYOR (30.66\%), EDAD (11.22\%), CARGA\_CARDIOVASCULAR (8.33\%) \\ \hline
+\end{tabular}
+\end{table}

@@ -1,0 +1,235 @@
+{
+  "model_name": "decision_tree",
+  "pipeline_version": "exp_02_aggregated_features",
+  "dataset_version": "v1",
+  "n_samples": 1176,
+  "n_features": 24,
+  "feature_names": [
+    "EDAD",
+    "HB_PREQX",
+    "GENERO",
+    "SANGRADO_MAYOR",
+    "ACT_FISICA_METS",
+    "HIPERTENSION",
+    "DIABETES",
+    "ENFERMEDAD_CORONARIA",
+    "FALLA_CARDIACA",
+    "HIPOTIROIDISMO",
+    "ERC",
+    "INMUNOSUPRESION",
+    "OBESIDAD",
+    "HIPERTENSION_PULMONAR",
+    "EPOC",
+    "ASMA",
+    "ENF_CEREBROVASCULAR",
+    "CANCER_ACTIVO",
+    "TABAQUISMO",
+    "HB_x_SANGRADO",
+    "EDAD2",
+    "CARGA_CARDIOVASCULAR",
+    "CARGA_PULMONAR",
+    "SINDROME_METABOLICO"
+  ],
+  "class_distribution": {
+    "0.0": 799,
+    "1.0": 377
+  },
+  "training_time_seconds": 0.006272,
+  "timestamp": "2026-04-16T12:44:40.363776",
+  "scale_features": true,
+  "model_params": {
+    "ccp_alpha": 0.0,
+    "class_weight": null,
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": null,
+    "max_leaf_nodes": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "random_state": null,
+    "splitter": "best"
+  },
+  "cv_results": {
+    "model_name": "decision_tree",
+    "n_folds": 5,
+    "cv_time_seconds": 0.175128,
+    "metrics": {
+      "accuracy": {
+        "test_mean": 0.6088604399567256,
+        "test_std": 0.01884150167686873,
+        "train_mean": 0.9778915594546318,
+        "train_std": 0.00405298396662489,
+        "test_scores": [
+          0.5889830508474576,
+          0.6340425531914894,
+          0.625531914893617,
+          0.6085106382978723,
+          0.5872340425531914
+        ],
+        "train_scores": [
+          0.9797872340425532,
+          0.9819341126461212,
+          0.9776833156216791,
+          0.9702444208289054,
+          0.9798087141339001
+        ]
+      },
+      "precision": {
+        "test_mean": 0.38833548138983554,
+        "test_std": 0.025741224622251112,
+        "train_mean": 0.9985989105363892,
+        "train_std": 0.001716016607501452,
+        "test_scores": [
+          0.36,
+          0.4067796610169492,
+          0.42528735632183906,
+          0.38961038961038963,
+          0.36
+        ],
+        "train_scores": [
+          1.0,
+          0.9965156794425087,
+          1.0,
+          1.0,
+          0.9964788732394366
+        ]
+      },
+      "recall": {
+        "test_mean": 0.3847719298245614,
+        "test_std": 0.05992396947444854,
+        "train_mean": 0.9323689247761326,
+        "train_std": 0.013631831513592535,
+        "test_scores": [
+          0.35526315789473684,
+          0.32,
+          0.49333333333333335,
+          0.4,
+          0.35526315789473684
+        ],
+        "train_scores": [
+          0.9368770764119602,
+          0.9470198675496688,
+          0.9304635761589404,
+          0.9072847682119205,
+          0.9401993355481728
+        ]
+      },
+      "f1": {
+        "test_mean": 0.38499354177308087,
+        "test_std": 0.03864237650627244,
+        "train_mean": 0.9642874285968593,
+        "train_std": 0.006835195075683122,
+        "test_scores": [
+          0.3576158940397351,
+          0.3582089552238806,
+          0.4567901234567901,
+          0.39473684210526316,
+          0.3576158940397351
+        ],
+        "train_scores": [
+          0.967409948542024,
+          0.9711375212224108,
+          0.9639794168096055,
+          0.9513888888888888,
+          0.9675213675213675
+        ]
+      },
+      "roc_auc": {
+        "test_mean": 0.5522569058258855,
+        "test_std": 0.022174133402794196,
+        "train_mean": 0.9987957315321416,
+        "train_std": 0.0004575117053570451,
+        "test_scores": [
+          0.5310032894736842,
+          0.5504166666666667,
+          0.5948333333333333,
+          0.541875,
+          0.5431562396557432
+        ],
+        "train_scores": [
+          0.9989653684380183,
+          0.9992382551378913,
+          0.9988159272041373,
+          0.997922042927173,
+          0.9990370639534883
+        ]
+      },
+      "f2": {
+        "test_mean": 0.3845154107289115,
+        "test_std": 0.051095163330030204,
+        "train_mean": 0.944866267770091,
+        "train_std": 0.01102808235535505,
+        "test_scores": [
+          0.3562005277044855,
+          0.3342618384401114,
+          0.4780361757105943,
+          0.3978779840848806,
+          0.3562005277044855
+        ],
+        "train_scores": [
+          0.9488559892328399,
+          0.9565217391304348,
+          0.9435862995298858,
+          0.9244264507422402,
+          0.9509408602150538
+        ]
+      },
+      "kappa": {
+        "test_mean": 0.0990622157031871,
+        "test_std": 0.043856868504935434,
+        "train_mean": 0.9483082895897974,
+        "train_std": 0.00969106897729566,
+        "test_scores": [
+          0.05545469549430593,
+          0.10733215547703179,
+          0.17346123101518784,
+          0.10550268928423667,
+          0.053560307245173244
+        ],
+        "train_scores": [
+          0.9527833001988072,
+          0.9580022105481477,
+          0.9478435067660124,
+          0.9300223095718687,
+          0.952890120864151
+        ]
+      }
+    }
+  },
+  "hyperparameter_search": {},
+  "optimized_params": {},
+  "threshold_optimization": {
+    "criterion": "maximize_precision",
+    "constraint": "recall >= 0.80",
+    "threshold_candidates": [
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5
+    ],
+    "optimal_threshold": 0.2
+  },
+  "operating_point": {
+    "threshold": 0.2,
+    "confusion_matrix": {
+      "tp": 155,
+      "fp": 247,
+      "tn": 552,
+      "fn": 222
+    },
+    "metrics": {
+      "recall": 0.41114058355437666,
+      "precision": 0.3855721393034826,
+      "specificity": 0.690863579474343,
+      "f1_score": 0.3979460847240051,
+      "f2_score": 0.40575916230366493,
+      "kappa": 0.10024861499911919,
+      "accuracy": 0.6011904761904762
+    }
+  }
+}

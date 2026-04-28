@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contexto - Dataset</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <div class="instructions">Usa las flechas ← → o la rueda para navegar</div>
+  <div class="slide-container">
+    <div class="slide slide-content">
+      <h2>DATASET DEL PROYECTO</h2>
+      <p class="subtitle-section">Datos de pacientes de la Fundacion Valle del Lili</p>
+
+      <div class="metrics-highlight">
+        <div class="metric-box">
+          <div class="metric-value">1324</div>
+          <div class="metric-label">Registros Totales</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-value">22</div>
+          <div class="metric-label">Variables Clinicas</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-value">0</div>
+          <div class="metric-label">Valores Nulos</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-value">32%</div>
+          <div class="metric-label">Casos Shock</div>
+        </div>
+      </div>
+
+      <div class="two-columns">
+        <div class="column">
+          <h3>Composicion del Dataset</h3>
+          <ul>
+            <li><strong>3 variables numericas:</strong> Edad, Hemoglobina prequirurgica, Actividad fisica (METs)</li>
+            <li><strong>19 variables categoricas:</strong> Comorbilidades (hipertension, diabetes, cancer activo, etc.)</li>
+            <li><strong>Division:</strong> 80% entrenamiento (1059), 20% prueba (265)</li>
+            <li><strong>Validacion cruzada:</strong> Estratificada 5-folds para estabilidad</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h3>Variables Clave</h3>
+          <ul>
+            <li><strong>EDAD:</strong> Modificador de respuesta homeostatica (42.9% importancia SHAP)</li>
+            <li><strong>HB_PREQX:</strong> Reserva ante perdidas (32.8% importancia)</li>
+            <li><strong>SANGRADO_MAYOR:</strong> Variable intraoperatoria critica (19.16% en modelo final)</li>
+            <li><strong>Comorbilidades:</strong> Hipertension, cancer activo, diabetes, obesidad</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="page-number">0</div>
+    </div>
+  </div>
+  <div class="navigation" id="navigation"></div>
+  <script src="./assets/presentation.js"></script>
+</body>
+</html>

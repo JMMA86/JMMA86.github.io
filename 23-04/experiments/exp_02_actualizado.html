@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exp 2 Aggregated Features - Actualizado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../slides/experiments/assets/styles.css" />
+</head>
+<body>
+  <div class="instructions">Usa las flechas ← → o la rueda para navegar</div>
+  <div class="slide-container">
+    <div class="slide slide-content">
+      <div class="section-header">Fase · Fase 2</div>
+      <h2>EXPERIMENTO 2 - FEATURES AGREGADAS</h2>
+      <p class="subtitle-section">Objetivo: evaluar impacto de variables agregadas (sindromes, cargas)</p>
+
+      <table class="results-table">
+        <thead>
+          <tr><th>Modelo</th><th>AUC ROC</th><th>Brier Score</th><th>Δ vs Exp1</th><th>Posicion</th></tr>
+        </thead>
+        <tbody>
+          <tr class="highlight-best"><td>catboost</td><td>0.6192</td><td>0.2133</td><td>+0.0039</td><td>1</td></tr>
+          <tr><td>logistic_regression_lasso</td><td>0.6055</td><td>0.2122</td><td>0.0000</td><td>2</td></tr>
+          <tr><td>xgboost</td><td>0.6045</td><td>0.2453</td><td>+0.0095</td><td>3</td></tr>
+          <tr><td>lightgbm</td><td>0.5995</td><td>0.2388</td><td>+0.0052</td><td>4</td></tr>
+          <tr><td>random_forest</td><td>0.5868</td><td>0.2421</td><td>-0.0008</td><td>5</td></tr>
+          <tr><td>naive_bayes</td><td>0.5657</td><td>0.5986</td><td>-0.0056</td><td>6</td></tr>
+          <tr><td>decision_tree</td><td>0.5568</td><td>0.3816</td><td>-0.0087</td><td>7</td></tr>
+        </tbody>
+      </table>
+
+      <div class="image-grid">
+        <div class="image-card">
+          <h4>ROC comparativa (Exp 2)</h4>
+          <img src="exp_02_aggregated_features/comparison_plots/roc_comparison.png" alt="ROC exp2" />
+        </div>
+        <div class="image-card">
+          <h4>Calibracion comparativa (Exp 2)</h4>
+          <img src="exp_02_aggregated_features/comparison_plots/calibration_comparison.png" alt="Calibration exp2" />
+        </div>
+      </div>
+
+      <div class="image-grid">
+        <div class="image-card">
+          <h4>Feature importance - catboost</h4>
+          <img src="exp_02_aggregated_features/models/catboost/plots/feature_importance.png" alt="FI catboost exp2" />
+        </div>
+        <div class="image-card">
+          <h4>SHAP Summary - catboost</h4>
+          <img src="exp_02_aggregated_features/models/catboost/plots/shap_summary.png" alt="SHAP summary catboost" />
+        </div>
+      </div>
+
+      <div class="conclusions-box">
+        <h3>Lectura</h3>
+        <p>CatBoost mejora ligeramente a 0.6192 (+0.39%). Variables agregadas aportan: SINDROME_METABOLICO (5.03%), CARGA_CARDIOVASCULAR (3.18%), CARGA_PULMONAR (1.10%). EDAD (39.62%) y HB_PREQX (28.27%) mantienen dominancia. Brier estable 0.2133. Features agregadas aportan valor predictivo modesto.</p>
+      </div>
+
+      <div class="source-box">Graficas actualizadas desde exp_02_aggregated_features - modelo catboost - plot_metadata.json</div>
+      <div class="page-number">2</div>
+    </div>
+  </div>
+  <div class="navigation" id="navigation"></div>
+  <script src="../slides/experiments/assets/presentation.js"></script>
+</body>
+</html>

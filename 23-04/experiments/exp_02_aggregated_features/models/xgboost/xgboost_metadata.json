@@ -1,0 +1,259 @@
+{
+  "model_name": "xgboost",
+  "pipeline_version": "exp_02_aggregated_features",
+  "dataset_version": "v1",
+  "n_samples": 1176,
+  "n_features": 22,
+  "feature_names": [
+    "EDAD",
+    "HB_PREQX",
+    "GENERO",
+    "SANGRADO_MAYOR",
+    "ACT_FISICA_METS",
+    "HIPERTENSION",
+    "DIABETES",
+    "ENFERMEDAD_CORONARIA",
+    "FALLA_CARDIACA",
+    "HIPOTIROIDISMO",
+    "ERC",
+    "INMUNOSUPRESION",
+    "OBESIDAD",
+    "HIPERTENSION_PULMONAR",
+    "EPOC",
+    "ASMA",
+    "ENF_CEREBROVASCULAR",
+    "CANCER_ACTIVO",
+    "TABAQUISMO",
+    "CARGA_CARDIOVASCULAR",
+    "CARGA_PULMONAR",
+    "SINDROME_METABOLICO"
+  ],
+  "class_distribution": {
+    "0.0": 799,
+    "1.0": 377
+  },
+  "training_time_seconds": 126.420481,
+  "timestamp": "2026-04-21T22:40:19.002913",
+  "scale_features": true,
+  "model_params": {
+    "objective": "binary:logistic",
+    "base_score": null,
+    "booster": null,
+    "callbacks": null,
+    "colsample_bylevel": null,
+    "colsample_bynode": null,
+    "colsample_bytree": null,
+    "device": null,
+    "early_stopping_rounds": null,
+    "enable_categorical": false,
+    "eval_metric": null,
+    "feature_types": null,
+    "gamma": null,
+    "grow_policy": null,
+    "importance_type": null,
+    "interaction_constraints": null,
+    "learning_rate": null,
+    "max_bin": null,
+    "max_cat_threshold": null,
+    "max_cat_to_onehot": null,
+    "max_delta_step": null,
+    "max_depth": null,
+    "max_leaves": null,
+    "min_child_weight": null,
+    "missing": NaN,
+    "monotone_constraints": null,
+    "multi_strategy": null,
+    "n_estimators": null,
+    "n_jobs": null,
+    "num_parallel_tree": null,
+    "random_state": null,
+    "reg_alpha": null,
+    "reg_lambda": null,
+    "sampling_method": null,
+    "scale_pos_weight": null,
+    "subsample": null,
+    "tree_method": null,
+    "validate_parameters": null,
+    "verbosity": null
+  },
+  "cv_results": {
+    "model_name": "xgboost",
+    "n_folds": 5,
+    "cv_time_seconds": 10.884376,
+    "metrics": {
+      "accuracy": {
+        "test_mean": 0.642884962134872,
+        "test_std": 0.026905214717482716,
+        "train_mean": 0.8985983675130577,
+        "train_std": 0.009900744789193403,
+        "test_scores": [
+          0.6101694915254238,
+          0.6340425531914894,
+          0.6212765957446809,
+          0.676595744680851,
+          0.6723404255319149
+        ],
+        "train_scores": [
+          0.9053191489361702,
+          0.8969181721572795,
+          0.9054197662061636,
+          0.8799149840595112,
+          0.9054197662061636
+        ]
+      },
+      "precision": {
+        "test_mean": 0.42428736678423784,
+        "test_std": 0.05417851417273292,
+        "train_mean": 0.9292761196185613,
+        "train_std": 0.01641458653637624,
+        "test_scores": [
+          0.38235294117647056,
+          0.3829787234042553,
+          0.375,
+          0.49019607843137253,
+          0.4909090909090909
+        ],
+        "train_scores": [
+          0.9568965517241379,
+          0.9253112033195021,
+          0.9311740890688259,
+          0.9055793991416309,
+          0.9274193548387096
+        ]
+      },
+      "recall": {
+        "test_mean": 0.310140350877193,
+        "test_std": 0.04341393172160833,
+        "train_mean": 0.7400673252513696,
+        "train_std": 0.023512208450339755,
+        "test_scores": [
+          0.34210526315789475,
+          0.24,
+          0.28,
+          0.3333333333333333,
+          0.35526315789473684
+        ],
+        "train_scores": [
+          0.7375415282392026,
+          0.7384105960264901,
+          0.7615894039735099,
+          0.6986754966887417,
+          0.7641196013289037
+        ]
+      },
+      "f1": {
+        "test_mean": 0.3571685805261077,
+        "test_std": 0.04429312223902819,
+        "train_mean": 0.8237885237363077,
+        "train_std": 0.01851430441759006,
+        "test_scores": [
+          0.3611111111111111,
+          0.29508196721311475,
+          0.32061068702290074,
+          0.3968253968253968,
+          0.4122137404580153
+        ],
+        "train_scores": [
+          0.8330206378986866,
+          0.8213627992633518,
+          0.8378870673952641,
+          0.788785046728972,
+          0.8378870673952641
+        ]
+      },
+      "roc_auc": {
+        "test_mean": 0.6045233842270771,
+        "test_std": 0.03090245207488071,
+        "train_mean": 0.9698787893845783,
+        "train_std": 0.0028020419164101495,
+        "test_scores": [
+          0.5482319078947367,
+          0.6103333333333333,
+          0.6287083333333333,
+          0.6355833333333333,
+          0.5997600132406488
+        ],
+        "train_scores": [
+          0.9684437373595579,
+          0.9700069437967023,
+          0.9735565712153718,
+          0.9654649752821566,
+          0.971921719269103
+        ]
+      },
+      "f2": {
+        "test_mean": 0.327188420884582,
+        "test_std": 0.04326660096892352,
+        "train_mean": 0.7713992393566124,
+        "train_std": 0.02160184095556467,
+        "test_scores": [
+          0.34946236559139787,
+          0.25936599423631124,
+          0.2949438202247191,
+          0.3561253561253561,
+          0.37604456824512533
+        ],
+        "train_scores": [
+          0.7729805013927576,
+          0.7694962042788129,
+          0.7903780068728522,
+          0.7321304649548924,
+          0.7920110192837465
+        ]
+      },
+      "kappa": {
+        "test_mean": 0.11850898446299736,
+        "test_std": 0.058629590164337005,
+        "train_mean": 0.7539144255185155,
+        "train_std": 0.024896228204577618,
+        "test_scores": [
+          0.08186738836265217,
+          0.06521739130434778,
+          0.06566897475988387,
+          0.18670309653916206,
+          0.1930880713489409
+        ],
+        "train_scores": [
+          0.7684831578830849,
+          0.7501990974250067,
+          0.7720625658304778,
+          0.7068317604210608,
+          0.7719955460329474
+        ]
+      }
+    }
+  },
+  "hyperparameter_search": {},
+  "optimized_params": {},
+  "threshold_optimization": {
+    "criterion": "maximize_precision",
+    "constraint": "recall >= 0.85",
+    "threshold_candidates": [
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5
+    ],
+    "optimal_threshold": 0.2
+  },
+  "operating_point": {
+    "threshold": 0.2,
+    "confusion_matrix": {
+      "tp": 258,
+      "fp": 429,
+      "tn": 370,
+      "fn": 119
+    },
+    "metrics": {
+      "recall": 0.6843501326259946,
+      "precision": 0.37554585152838427,
+      "specificity": 0.46307884856070086,
+      "f1_score": 0.4849624060150376,
+      "f2_score": 0.5876993166287016,
+      "kappa": 0.12112657616744815,
+      "accuracy": 0.5340136054421769
+    }
+  }
+}

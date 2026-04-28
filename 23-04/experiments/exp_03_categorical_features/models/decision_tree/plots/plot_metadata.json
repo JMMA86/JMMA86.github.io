@@ -1,0 +1,221 @@
+{
+  "experiment": "exp_03_categorical_features",
+  "model_name": "decision_tree",
+  "plots": {
+    "roc_curve_cv": {
+      "description": "ROC Curve based on Train CV validation probabilities",
+      "path": "roc_curve_cv.png",
+      "metrics": {
+        "roc_auc": 0.5570101001324065
+      }
+    },
+    "calibration_curve_cv": {
+      "description": "Calibration curve based on Train CV validation probabilities",
+      "path": "calibration_curve_cv.png",
+      "metrics": {
+        "brier_score": 0.383567649281935
+      }
+    },
+    "precision_recall": {
+      "description": "Precision-Recall curve on Test set",
+      "path": "precision_recall_curve.png",
+      "metrics": {
+        "average_precision": 0.3499472053452424
+      }
+    },
+    "decision_threshold": {
+      "description": "Decision threshold curve on Test set highlighting optimal choice",
+      "path": "threshold_analysis.png",
+      "metrics": {
+        "optimal_threshold": 0.2
+      }
+    },
+    "feature_importance": {
+      "description": "Top feature importances from the trained model",
+      "path": "feature_importance.png",
+      "metrics": {},
+      "top_features": [
+        {
+          "feature": "EDAD",
+          "importance": 0.39627020528657847,
+          "pct": 39.63
+        },
+        {
+          "feature": "HB_PREQX",
+          "importance": 0.3472324987818087,
+          "pct": 34.72
+        },
+        {
+          "feature": "GENERO",
+          "importance": 0.06197465289122574,
+          "pct": 6.2
+        },
+        {
+          "feature": "SANGRADO_MAYOR",
+          "importance": 0.03852178706968892,
+          "pct": 3.85
+        },
+        {
+          "feature": "CANCER_ACTIVO",
+          "importance": 0.031197332744086315,
+          "pct": 3.12
+        },
+        {
+          "feature": "HIPERTENSION",
+          "importance": 0.023090547269190794,
+          "pct": 2.31
+        },
+        {
+          "feature": "TABAQUISMO",
+          "importance": 0.014200634202251674,
+          "pct": 1.42
+        },
+        {
+          "feature": "DIABETES",
+          "importance": 0.012251607169384442,
+          "pct": 1.23
+        },
+        {
+          "feature": "OBESIDAD",
+          "importance": 0.01066144833542429,
+          "pct": 1.07
+        },
+        {
+          "feature": "HB_CAT",
+          "importance": 0.010451056861325112,
+          "pct": 1.05
+        },
+        {
+          "feature": "ENFERMEDAD_CORONARIA",
+          "importance": 0.010398379772389537,
+          "pct": 1.04
+        },
+        {
+          "feature": "ACT_FISICA_METS",
+          "importance": 0.009895755474960426,
+          "pct": 0.99
+        },
+        {
+          "feature": "ERC",
+          "importance": 0.009002455281482394,
+          "pct": 0.9
+        },
+        {
+          "feature": "HIPOTIROIDISMO",
+          "importance": 0.008497543139609362,
+          "pct": 0.85
+        },
+        {
+          "feature": "EDAD_CAT",
+          "importance": 0.00714315515552876,
+          "pct": 0.71
+        },
+        {
+          "feature": "ASMA",
+          "importance": 0.0038180266260971754,
+          "pct": 0.38
+        },
+        {
+          "feature": "HIPERTENSION_PULMONAR",
+          "importance": 0.0035349296623180004,
+          "pct": 0.35
+        },
+        {
+          "feature": "ENF_CEREBROVASCULAR",
+          "importance": 0.0018579842766500672,
+          "pct": 0.19
+        },
+        {
+          "feature": "FALLA_CARDIACA",
+          "importance": 0.0,
+          "pct": 0.0
+        },
+        {
+          "feature": "INMUNOSUPRESION",
+          "importance": 0.0,
+          "pct": 0.0
+        }
+      ]
+    },
+    "decision_tree_full": {
+      "description": "Complete decision tree structure",
+      "path": "decision_tree_full.png",
+      "metrics": {
+        "depth": 27,
+        "n_leaves": 449,
+        "node_count": 897
+      }
+    },
+    "perf_precision_npv": {
+      "description": "Grouped bar plot without space comparing Precision and NPV from Operating Point",
+      "path": "perf_precision_npv.png",
+      "metrics": {
+        "precision": 0.39331619537275064,
+        "npv": 0.7153748411689962
+      }
+    },
+    "perf_recall_specificity": {
+      "description": "Grouped bar plot without space comparing Recall and Specificity from Operating Point",
+      "path": "perf_recall_specificity.png",
+      "metrics": {
+        "recall": 0.40583554376657827,
+        "specificity": 0.704630788485607
+      }
+    },
+    "perf_f1_f2": {
+      "description": "Grouped bar plot without space comparing F1 and F2 from Operating Point",
+      "path": "perf_f1_f2.png",
+      "metrics": {
+        "f1_score": 0.39947780678851175,
+        "f2_score": 0.4032683183974697
+      }
+    },
+    "accuracy": {
+      "description": "Single bar plot for isolated accuracy from operating point",
+      "path": "accuracy.png",
+      "metrics": {
+        "accuracy": 0.608843537414966
+      }
+    },
+    "kappa": {
+      "description": "Single bar plot for isolated kappa from operating point",
+      "path": "kappa.png",
+      "metrics": {
+        "kappa": 0.10954552188441347
+      }
+    },
+    "confusion_matrix": {
+      "description": "Confusion matrix with percentages using optimal threshold",
+      "path": "confusion_matrix_normalized.png",
+      "metrics": {
+        "counts": {
+          "tp": 153,
+          "fp": 236,
+          "tn": 563,
+          "fn": 224
+        },
+        "percentages": {
+          "tn_pct": 70.46,
+          "fp_pct": 29.54,
+          "fn_pct": 59.42,
+          "tp_pct": 40.58
+        }
+      }
+    },
+    "roc_boxplot_cv": {
+      "description": "Boxplot showing ROC-AUC distribution across CV folds",
+      "path": "cv_fold_plots/cv_fold_roc_auc.png",
+      "metrics": {
+        "mean": 0.5574764668156241,
+        "std": 0.024362754950393445,
+        "folds": [
+          0.5358141447368422,
+          0.5357500000000001,
+          0.6024583333333334,
+          0.557625,
+          0.5557348560079445
+        ]
+      }
+    }
+  }
+}

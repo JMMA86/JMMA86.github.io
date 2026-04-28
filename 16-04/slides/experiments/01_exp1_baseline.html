@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exp 1 Baseline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <div class="instructions">Usa las flechas ← → o la rueda para navegar</div>
+  <div class="slide-container">
+    <div class="slide slide-content">
+      <div class="section-header">Fase Â· Fase 1</div>
+      <h2>EXPERIMENTO 1 - BASELINE</h2>
+      <p class="subtitle-section">Objetivo: establecer linea base de AUC ROC con modelos por defecto</p>
+
+      <table class="results-table">
+        <thead>
+          <tr><th>Modelo</th><th>AUC ROC</th><th>Posición</th></tr>
+        </thead>
+        <tbody>
+          <tr class="highlight-best"><td>catboost</td><td>0.6153</td><td>1</td></tr>
+          <tr><td>logistic_regression_lasso</td><td>0.6055</td><td>2</td></tr>
+          <tr><td>xgboost</td><td>0.5950</td><td>3</td></tr>
+        </tbody>
+      </table>
+
+      <div class="image-grid">
+        <div class="image-card">
+          <h4>ROC comparativa (Exp 1)</h4>
+          <img src="../../experiments/exp_01_base_models/comparison_plots/roc_comparison.png" alt="ROC exp1" />
+        </div>
+        <div class="image-card">
+          <h4>Feature importance del ganador (catboost)</h4>
+          <img src="../../experiments/exp_01_base_models/models/catboost/plots/feature_importance.png" alt="FI catboost exp1" />
+        </div>
+      </div>
+
+      <div class="conclusions-box">
+        <h3>Lectura</h3>
+        <p>CatBoost abre como mejor baseline con AUC 0.6153. Variables más influyentes: EDAD (40.91%), HB_PREQX (29.47%), SANGRADO_MAYOR (8.87%).</p>
+      </div>
+
+      <div class="source-box">Gráficas tomadas de exp_01_base_models modelo catboost</div>
+      <div class="page-number">6</div>
+    </div>
+  </div>
+  <div class="navigation" id="navigation"></div>
+  <script src="./assets/presentation.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modelo Final - Random Forest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../slides/experiments/assets/styles.css" />
+</head>
+<body>
+  <div class="instructions">Usa las flechas ← → o la rueda para navegar</div>
+  <div class="slide-container">
+    <div class="slide slide-content">
+      <div class="section-header">Modelo Final</div>
+      <h2>RANDOM FOREST - MEJOR MODELO</h2>
+      <p class="subtitle-section">Cambio clave: eliminación de EDAD² - modelos tree-based capturan no-linealidad sin transformación explícita</p>
+
+      <table class="results-table">
+        <thead>
+          <tr><th>Métrica</th><th>Valor</th></tr>
+        </thead>
+        <tbody>
+          <tr class="highlight-best"><td>AUC ROC</td><td>0.6404</td></tr>
+          <tr class="highlight-best"><td>Recall</td><td>0.8196</td></tr>
+          <tr><td>Precision</td><td>0.3755</td></tr>
+          <tr><td>Specificity</td><td>0.3567</td></tr>
+          <tr><td>F1</td><td>0.5150</td></tr>
+          <tr><td>F2</td><td>0.6628</td></tr>
+          <tr><td>Kappa</td><td>0.1343</td></tr>
+        </tbody>
+      </table>
+
+      <div class="image-grid">
+        <div class="image-card">
+          <h4>ROC comparativa (Exp 5)</h4>
+          <img src="exp_05_hyperparameter_search/comparison_plots/roc_comparison.png" alt="ROC exp5" />
+        </div>
+        <div class="image-card">
+          <h4>Feature importance del ganador (random_forest)</h4>
+          <img src="exp_05_hyperparameter_search/models/random_forest/plots/feature_importance.png" alt="FI random_forest exp5" />
+        </div>
+      </div>
+
+      <div class="conclusions-box">
+        <h3>Lectura</h3>
+        <p>Random Forest logra mejor AUC ROC (0.6404) y recall (0.8196). Variables mas influyentes: EDAD (56.36%), SANGRADO_MAYOR (22.65%), HB_PREQX (18.37%). Alto recall prioriza detección de casos positivos (shock).</p>
+      </div>
+
+      <div class="source-box">Graficas tomadas de exp_05_hyperparameter_search modelo random_forest</div>
+      <div class="page-number">2</div>
+    </div>
+  </div>
+  <div class="navigation" id="navigation"></div>
+  <script src="./assets/presentation.js"></script>
+</body>
+</html>

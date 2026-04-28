@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHAP Analysis - Random Forest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../slides/experiments/assets/styles.css" />
+</head>
+<body>
+  <div class="instructions">Usa las flechas ← → o la rueda para navegar</div>
+  <div class="slide-container">
+    <div class="slide slide-content">
+      <div class="section-header">Explicabilidad</div>
+      <h2>SHAP VALUES - RANDOM FOREST</h2>
+      <p class="subtitle-section">Análisis de contribuciones de features en predicciones individuales</p>
+
+      <table class="results-table">
+        <thead>
+          <tr><th>Feature</th><th>Mean |SHAP|</th></tr>
+        </thead>
+        <tbody>
+          <tr class="highlight-best"><td>HB_PREQX</td><td>0.0883</td></tr>
+          <tr class="highlight-best"><td>EDAD</td><td>0.0650</td></tr>
+          <tr class="highlight-best"><td>SANGRADO_MAYOR</td><td>0.0287</td></tr>
+          <tr><td>GENERO</td><td>0.0032</td></tr>
+          <tr><td>EPOC</td><td>0.0008</td></tr>
+          <tr><td>OBESIDAD</td><td>0.0007</td></tr>
+        </tbody>
+      </table>
+
+      <div class="image-grid">
+        <div class="image-card">
+          <h4>SHAP Summary Plot</h4>
+          <img src="exp_05_hyperparameter_search/models/random_forest/plots/shap_summary.png" alt="SHAP summary" />
+        </div>
+      </div>
+
+      <div class="conclusions-box">
+        <h3>Lectura</h3>
+        <p>HB_PREQX tiene mayor impacto absoluto promedio en predicciones (0.0883), seguido por EDAD (0.0650) y SANGRADO_MAYOR (0.0287). Puntos rojos (valores altos) de HB_PREQX empujan predicción hacia clase negativa. Puntos azules (valores bajos) empujan hacia shock.</p>
+      </div>
+
+      <div class="source-box">Graficas tomadas de exp_05_hyperparameter_search modelo random_forest - SHAP values desde plot_metadata.json</div>
+      <div class="page-number">4</div>
+    </div>
+  </div>
+  <div class="navigation" id="navigation"></div>
+  <script src="./assets/presentation.js"></script>
+</body>
+</html>

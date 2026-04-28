@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exp 2 Features Agregadas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <div class="instructions">Usa las flechas ← → o la rueda para navegar</div>
+  <div class="slide-container">
+    <div class="slide slide-content">
+      <div class="section-header">Fase · Fase 2A</div>
+      <h2>EXPERIMENTO 2 - FEATURES AGREGADAS</h2>
+      <p class="subtitle-section">Se agregan variables derivadas y el AUC mejora respecto al baseline</p>
+
+      <div class="cards-grid">
+        <div class="card highlighted">
+          <h3>Ganador</h3>
+          <p>catboost con AUC ROC = <strong>0.6235</strong></p>
+          <p>Mejora absoluta vs Exp1: <strong>+0.0082</strong></p>
+        </div>
+        <div class="card">
+          <h3>Top features</h3>
+          <ul>
+            <li>HB_PREQX (26.83%)</li>
+            <li>EDAD2 (21.34%)</li>
+            <li>EDAD (20.75%)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="image-grid">
+        <div class="image-card">
+          <h4>ROC comparativa (Exp 2)</h4>
+          <img src="../../experiments/exp_02_aggregated_features/comparison_plots/roc_comparison.png" alt="ROC exp2" />
+        </div>
+        <div class="image-card">
+          <h4>Feature importance del ganador (catboost)</h4>
+          <img src="../../experiments/exp_02_aggregated_features/models/catboost/plots/feature_importance.png" alt="FI catboost exp2" />
+        </div>
+      </div>
+
+      <div class="source-box">Graficas tomadas de exp_02_aggregated_features modelo catboost</div>
+      <div class="page-number">7</div>
+    </div>
+  </div>
+  <div class="navigation" id="navigation"></div>
+  <script src="./assets/presentation.js"></script>
+</body>
+</html>

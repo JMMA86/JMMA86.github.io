@@ -1,0 +1,40 @@
+{
+  "accuracy": 0.6106870229007634,
+  "precision": 0.37142857142857144,
+  "recall": 0.30952380952380953,
+  "specificity": 0.7528089887640449,
+  "f1_score": 0.33766233766233766,
+  "kappa": 0.06520218273401435,
+  "confusion_matrix": {
+    "tn": 67,
+    "fp": 22,
+    "fn": 29,
+    "tp": 13
+  },
+  "n_samples": 131,
+  "n_positive": 42,
+  "n_negative": 89,
+  "roc_auc": 0.5224719101123596,
+  "average_precision": 0.33807965934465384,
+  "optimal_threshold": 0.5,
+  "optimal_sensitivity": 0.35714285714285715,
+  "optimal_specificity": 0.696629213483146,
+  "dataset": "test",
+  "timestamp": "2026-04-16T12:45:36.967062",
+  "optimal_threshold_results": {
+    "threshold": 0.2,
+    "accuracy": 0.5725190839694656,
+    "precision": 0.3409090909090909,
+    "recall": 0.35714285714285715,
+    "specificity": 0.6741573033707865,
+    "f1_score": 0.3488372093023256,
+    "kappa": 0.03091149273447824,
+    "confusion_matrix": {
+      "tn": 60,
+      "fp": 29,
+      "fn": 27,
+      "tp": 15
+    }
+  },
+  "model_name": "decision_tree"
+}

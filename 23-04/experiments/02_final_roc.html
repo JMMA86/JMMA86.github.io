@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROC Curve - Random Forest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../slides/experiments/assets/styles.css" />
+</head>
+<body>
+  <div class="instructions">Usa las flechas ← → o la rueda para navegar</div>
+  <div class="slide-container">
+    <div class="slide slide-content">
+      <div class="section-header">Curva ROC-AUC</div>
+      <h2>CURVA ROC - RANDOM FOREST</h2>
+      <p class="subtitle-section">Análisis de capacidad discriminativa del modelo (CV)</p>
+
+      <table class="results-table">
+        <thead>
+          <tr><th>Métrica</th><th>Valor</th></tr>
+        </thead>
+        <tbody>
+          <tr class="highlight-best"><td>ROC-AUC (CV Mean)</td><td>0.6367</td></tr>
+          <tr><td>ROC-AUC (Test)</td><td>0.6404</td></tr>
+          <tr><td>Std Dev (CV)</td><td>0.0362</td></tr>
+        </tbody>
+      </table>
+
+      <div class="image-grid">
+        <div class="image-card">
+          <h4>ROC Curve (CV)</h4>
+          <img src="exp_05_hyperparameter_search/models/random_forest/plots/roc_curve_cv.png" alt="ROC CV" />
+        </div>
+        <div class="image-card">
+          <h4>ROC-AUC Boxplot (CV Folds)</h4>
+          <img src="exp_05_hyperparameter_search/models/random_forest/plots/cv_fold_plots/cv_fold_roc_auc.png" alt="ROC Boxplot" />
+        </div>
+      </div>
+
+      <div class="conclusions-box">
+        <h3>Lectura</h3>
+        <p>ROC-AUC 0.6367 (CV) indica capacidad discriminativa moderada, mejor que azar (0.5). Estabilidad cross-validation: std 0.0362. Folds: 0.6048, 0.5974, 0.6875, 0.6715, 0.6226. Consistente entre particiones.</p>
+      </div>
+
+      <div class="source-box">Graficas tomadas de exp_05_hyperparameter_search modelo random_forest</div>
+      <div class="page-number">3</div>
+    </div>
+  </div>
+  <div class="navigation" id="navigation"></div>
+  <script src="./assets/presentation.js"></script>
+</body>
+</html>

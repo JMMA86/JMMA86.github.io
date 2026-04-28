@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exp 5 Todos los Modelos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <div class="instructions">Usa las flechas ← → o la rueda para navegar</div>
+  <div class="slide-container">
+    <div class="slide slide-content">
+      <div class="section-header">Fase Â· Fase 4</div>
+      <h2>EXP 5 - TODOS LOS MODELOS</h2>
+      <p class="subtitle-section">Antes de decidir manualmente, se comparan todos los candidatos optimizados</p>
+
+      <table class="results-table">
+        <thead><tr><th>Ranking</th><th>Modelo</th><th>AUC ROC</th></tr></thead>
+        <tbody>
+          <tr class="highlight-best"><td>1</td><td>xgboost</td><td>0.6391</td></tr>
+          <tr><td>2</td><td>random_forest</td><td>0.6356</td></tr>
+          <tr><td>3</td><td>lightgbm</td><td>0.6338</td></tr>
+          <tr><td>4</td><td>decision_tree</td><td>0.6227</td></tr>
+          <tr><td>5</td><td>catboost</td><td>0.6202</td></tr>
+        </tbody>
+      </table>
+
+      <div class="image-grid">
+        <div class="image-card">
+          <h4>ROC comparativa general (Exp 5)</h4>
+          <img src="../../experiments/exp_05_hyperparameter_search/comparison_plots/roc_comparison.png" alt="roc comparison exp5" />
+        </div>
+        <div class="image-card">
+          <h4>ROC-AUC boxplot general (Exp 5)</h4>
+          <img src="../../experiments/exp_05_hyperparameter_search/comparison_plots/roc_boxplot_comparison.png" alt="roc boxplot exp5" />
+        </div>
+      </div>
+
+      <div class="source-box">Gráficas tomadas de exp_05_hyperparameter_search modelo comparacion_general</div>
+      <div class="page-number">11</div>
+    </div>
+  </div>
+  <div class="navigation" id="navigation"></div>
+  <script src="./assets/presentation.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conclusiones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../slides/experiments/assets/styles.css" />
+</head>
+<body>
+  <div class="instructions">Usa las flechas ← → o la rueda para navegar</div>
+  <div class="slide-container">
+    <div class="slide slide-content">
+      <div class="section-header">Cierre</div>
+      <h2>CONCLUSIONES</h2>
+
+      <div class="conclusions-box" style="margin-top: 40px; font-size: 24px;">
+        <h3>Resultados Clave</h3>
+        <ul style="margin-left: 30px; line-height: 1.8;">
+          <li><strong>Random Forest</strong> logró mejor performance (AUC 0.6404, Recall 0.8196)</li>
+          <li>Eliminación de <strong>EDAD²</strong> simplificó modelo sin perder capacidad predictiva</li>
+          <li><strong>EDAD</strong> (56.36%), <strong>SANGRADO_MAYOR</strong> (22.65%) y <strong>HB_PREQX</strong> (18.37%) son features más importantes</li>
+          <li><strong>SHAP</strong> revela que HB_PREQX tiene mayor impacto en predicciones individuales (0.0883)</li>
+          <li>Recall alto (81.17%) prioriza detección de casos positivos, minimizando falsos negativos</li>
+          <li>Hyperparameter tuning generó mejoras significativas vs baseline</li>
+        </ul>
+      </div>
+
+      <div class="conclusions-box" style="margin-top: 30px; font-size: 24px;">
+        <h3>Implicaciones Clínicas</h3>
+        <p>Modelo puede asistir en identificación temprana de pacientes en riesgo de shock hemorrágico durante cirugía mayor no cardíaca. Balance recall-precision permite screening efectivo con bajo riesgo de falsos negativos.</p>
+      </div>
+
+      <div class="page-number">6</div>
+    </div>
+  </div>
+  <div class="navigation" id="navigation"></div>
+  <script src="./assets/presentation.js"></script>
+</body>
+</html>

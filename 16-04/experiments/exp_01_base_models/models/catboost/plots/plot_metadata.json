@@ -1,0 +1,207 @@
+{
+  "experiment": "exp_01_base_models",
+  "model_name": "catboost",
+  "plots": {
+    "roc_curve_cv": {
+      "description": "ROC Curve based on Train CV validation probabilities",
+      "path": "roc_curve_cv.png",
+      "metrics": {
+        "roc_auc": 0.6153004137702748
+      }
+    },
+    "calibration_curve_cv": {
+      "description": "Calibration curve based on Train CV validation probabilities",
+      "path": "calibration_curve_cv.png",
+      "metrics": {
+        "brier_score": 0.2134224558527638
+      }
+    },
+    "precision_recall": {
+      "description": "Precision-Recall curve on Test set",
+      "path": "precision_recall_curve.png",
+      "metrics": {
+        "average_precision": 0.4812727981080441
+      }
+    },
+    "decision_threshold": {
+      "description": "Decision threshold curve on Test set highlighting optimal choice",
+      "path": "threshold_analysis.png",
+      "metrics": {
+        "optimal_threshold": 0.22000000000000003
+      }
+    },
+    "feature_importance": {
+      "description": "Top feature importances from the trained model",
+      "path": "feature_importance.png",
+      "metrics": {},
+      "top_features": [
+        {
+          "feature": "EDAD",
+          "importance": 40.90640656821066,
+          "pct": 40.91
+        },
+        {
+          "feature": "HB_PREQX",
+          "importance": 29.473664589877902,
+          "pct": 29.47
+        },
+        {
+          "feature": "SANGRADO_MAYOR",
+          "importance": 8.872649746600793,
+          "pct": 8.87
+        },
+        {
+          "feature": "GENERO",
+          "importance": 3.846388857152317,
+          "pct": 3.85
+        },
+        {
+          "feature": "CANCER_ACTIVO",
+          "importance": 3.6473231898221163,
+          "pct": 3.65
+        },
+        {
+          "feature": "HIPERTENSION",
+          "importance": 2.955695349344333,
+          "pct": 2.96
+        },
+        {
+          "feature": "ACT_FISICA_METS",
+          "importance": 2.09081548312675,
+          "pct": 2.09
+        },
+        {
+          "feature": "DIABETES",
+          "importance": 1.724696457280313,
+          "pct": 1.72
+        },
+        {
+          "feature": "HIPOTIROIDISMO",
+          "importance": 1.2701200389550353,
+          "pct": 1.27
+        },
+        {
+          "feature": "TABAQUISMO",
+          "importance": 1.2517056660697654,
+          "pct": 1.25
+        },
+        {
+          "feature": "OBESIDAD",
+          "importance": 1.2164983297745944,
+          "pct": 1.22
+        },
+        {
+          "feature": "ERC",
+          "importance": 0.878395792726287,
+          "pct": 0.88
+        },
+        {
+          "feature": "ENFERMEDAD_CORONARIA",
+          "importance": 0.5152677635530424,
+          "pct": 0.52
+        },
+        {
+          "feature": "ENF_CEREBROVASCULAR",
+          "importance": 0.36447499551016155,
+          "pct": 0.36
+        },
+        {
+          "feature": "INMUNOSUPRESION",
+          "importance": 0.34491991238709696,
+          "pct": 0.34
+        },
+        {
+          "feature": "HIPERTENSION_PULMONAR",
+          "importance": 0.25608875136741904,
+          "pct": 0.26
+        },
+        {
+          "feature": "EPOC",
+          "importance": 0.23557225750797564,
+          "pct": 0.24
+        },
+        {
+          "feature": "ASMA",
+          "importance": 0.10543916941916491,
+          "pct": 0.11
+        },
+        {
+          "feature": "FALLA_CARDIACA",
+          "importance": 0.04387708131426078,
+          "pct": 0.04
+        }
+      ]
+    },
+    "perf_precision_npv": {
+      "description": "Grouped bar plot without space comparing Precision and NPV from Operating Point",
+      "path": "perf_precision_npv.png",
+      "metrics": {
+        "precision": 0.35260115606936415,
+        "npv": 0.7684887459807074
+      }
+    },
+    "perf_recall_specificity": {
+      "description": "Grouped bar plot without space comparing Recall and Specificity from Operating Point",
+      "path": "perf_recall_specificity.png",
+      "metrics": {
+        "recall": 0.8090185676392573,
+        "specificity": 0.29912390488110135
+      }
+    },
+    "perf_f1_f2": {
+      "description": "Grouped bar plot without space comparing F1 and F2 from Operating Point",
+      "path": "perf_f1_f2.png",
+      "metrics": {
+        "f1_score": 0.49114331723027377,
+        "f2_score": 0.6426464391066161
+      }
+    },
+    "accuracy": {
+      "description": "Single bar plot for isolated accuracy from operating point",
+      "path": "accuracy.png",
+      "metrics": {
+        "accuracy": 0.46258503401360546
+      }
+    },
+    "kappa": {
+      "description": "Single bar plot for isolated kappa from operating point",
+      "path": "kappa.png",
+      "metrics": {
+        "kappa": 0.08059308594204218
+      }
+    },
+    "confusion_matrix": {
+      "description": "Confusion matrix with percentages using optimal threshold",
+      "path": "confusion_matrix_normalized.png",
+      "metrics": {
+        "counts": {
+          "tp": 305,
+          "fp": 560,
+          "tn": 239,
+          "fn": 72
+        },
+        "percentages": {
+          "tn_pct": 29.91,
+          "fp_pct": 70.09,
+          "fn_pct": 19.1,
+          "tp_pct": 80.9
+        }
+      }
+    },
+    "roc_boxplot_cv": {
+      "description": "Boxplot showing ROC-AUC distribution across CV folds",
+      "path": "cv_fold_plots/cv_fold_roc_auc.png",
+      "metrics": {
+        "mean": 0.6153004137702748,
+        "std": 0.02008703709246816,
+        "folds": [
+          0.5949013157894738,
+          0.5953333333333334,
+          0.649625,
+          0.6200833333333334,
+          0.6165590863952334
+        ]
+      }
+    }
+  }
+}

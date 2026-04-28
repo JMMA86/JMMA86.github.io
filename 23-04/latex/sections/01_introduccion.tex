@@ -1,0 +1,63 @@
+\section{Introducción}
+
+\subsection{Contexto}
+
+El shock hemorrágico es una falla aguda del sistema circulatorio, causada por una pérdida rápida del volumen sanguíneo, lo que impide mantener niveles suficientes de oxígeno para las funciones de órganos vitales. El shock postoperatorio tiene varios estados que progresan desde etapas compensadas hasta descompensación completa. Según Bonanno \cite{bonanno2023}, estos se dividen en cinco niveles que se basan en la respuesta fisiológica de paciente, donde en el nivel I están las personas que se encuentran en un estado de taquicardia leve y una presión arterial sistólica (PAS) en un rango nominal, mientras que en el nivel III se observa un aumento en la frecuencia cardiaca, disminución del PAS y pérdida de consciencia. La clasificación enfatiza el momento óptimo para intervenciones específicas (DCS y THR) en lugar de depender de umbrales fijos, de este modo adaptándose a datos del paciente como edad y comorbilidades. La mortalidad en etapas avanzadas (IV-V) se produce cuando se alcanza hipotensión extrema y signos evidentes de descompensación como pérdida absoluta de la consciencia, paro cardiaco, falla multiorgánica, etc. La detección temprana es crítica, ya que cada minuto de retraso aumenta el riesgo de muerte \cite{cannon2018}.
+
+Actualmente el proceso de detección del shock hemorrágico conlleva evaluación completa de parte del personal médico, usando medidas como el índice de shock (IS), cociente que relaciona la taquicardia compensatoria con la caída de la presión arterial \cite{terceros2017}. Aunque el IS con punto de corte de 1,11 presenta una sensibilidad del 91,3\% y su versión modificada alcanza el 95,65\% de sensibilidad, ambos tienen limitaciones marcadas que dificultan el proceso de acción:
+
+\begin{itemize}
+    \item \textbf{Limitaciones de los índices convencionales:} Los métodos basados exclusivamente en presión arterial pueden no identificar hasta un 8--9\% de casos de hemorragia masiva en sus etapas iniciales \cite{terceros2017}.
+    \item \textbf{Índices predictivos con sensibilidad y especificidad variables:}
+    \begin{itemize}
+        \item Shock Index (SI): Sensibilidad 91.3\%, especificidad 79.7\%.
+        \item Modificado Shock Index (MSI): Sensibilidad 95.7\%, especificidad 75.8\%.
+    \end{itemize}
+    \item \textbf{Carga cognitiva del personal clínico:} La ``ceguera por desviación'' y la sobrecarga de información pueden afectar la toma de decisiones clínicas, especialmente en procedimientos prolongados.
+    \item \textbf{Enfoque en manifestaciones avanzadas:} Los criterios diagnósticos habituales como la hipotensión se manifiestan en fases relativamente tardías del shock, lo que dificulta la intervención preventiva; no siempre se dispone de información individualizada sobre comorbilidades o características demográficas.
+\end{itemize}
+
+El retraso en la predicción temprana conlleva consecuencias serias que pueden repercutir en la salud del paciente, entre ellas:
+
+\begin{itemize}
+    \item Según \cite{cannon2018}, en Estados Unidos se registran más de 60.000 muertes anuales relacionadas con hemorragia; a nivel mundial, se estiman alrededor de 1,9 millones de muertes por año, de las cuales aproximadamente 1,5 millones se asocian a trauma físico.
+    \item Aumento de transfusiones, infecciones, fallo multiorgánico y costos económicos.
+\end{itemize}
+
+La inteligencia artificial representa una herramienta complementaria prometedora para la detección temprana del shock hemorrágico, con el potencial de apoyar al equipo clínico en la identificación del denominado ``shock subclínico'', en el que ``la microcirculación subyacente se ve comprometida a pesar de que las variables de macrocirculación permanecen en rangos normales''. Los sistemas de monitoreo convencionales se centran principalmente en parámetros estáticos como la presión arterial, los cuales pueden mantenerse dentro de límites normales incluso cuando el paciente se aproxima al límite de su capacidad compensatoria, puesto que ``cualquier mecanismo compensatorio fisiológico tiene una respuesta máxima finita ante un estrés específico''.
+
+Aunque herramientas como el índice de shock (SI) y el índice de shock modificado (MSI) han contribuido a mejorar la detección, presentan limitaciones en especificidad y no siempre contemplan la variabilidad individual en la respuesta compensatoria. Los modelos de machine learning ofrecen la posibilidad de complementar estos enfoques al integrar múltiples variables clínicas (hematocrito, tiempo quirúrgico, clasificación ASA, entre otros) y analizar sus interacciones complejas, permitiendo identificar patrones que resultan difíciles de procesar de forma simultánea durante la práctica clínica.
+
+Sin embargo, estas soluciones aún enfrentan importantes limitaciones: la mayoría de los estudios existentes utilizan diseños retrospectivos con acceso limitado a datos temporales precisos, dependen de protocolos estandarizados en centros de alta volumetría que limitan su aplicabilidad en entornos menos especializados, y carecen de validación prospectiva en diversos escenarios clínicos. Además, la escasez de estudios prospectivos en el campo representa un obstáculo para la implementación clínica generalizada. La verdadera potencia de estos sistemas no radica en el reemplazo del personal, sino en la capacidad del sistema de generar alertas tempranas con parámetros interpretables y significativos para el tratamiento del paciente.
+
+\subsection{Formulación del problema}
+
+La detección tardía del shock hemorrágico en pacientes sometidos a cirugías mayores no cardiacas constituye un desafío crítico en la práctica clínica actual. En la mayoría de los casos, la identificación de esta complicación depende de la interpretación clínica del equipo médico y de criterios diagnósticos que frecuentemente se manifiestan en fases avanzadas de la condición, lo cual limita la capacidad de anticipación y aumenta la variabilidad en la toma de decisiones entre diferentes profesionales. Esta situación se ve agravada por la ausencia de protocolos estandarizados, la dificultad para interpretar cambios sutiles en los signos vitales y las limitaciones humanas en el monitoreo continuo durante procedimientos prolongados.
+
+La consecuencia directa de esta detección tardía es un incremento en la mortalidad y morbilidad postoperatoria, con mayor riesgo de falla multiorgánica, complicaciones asociadas a transfusiones sanguíneas y recuperación prolongada de los pacientes. Asimismo, se generan impactos significativos en los recursos hospitalarios debido al aumento en la necesidad de transfusiones, cirugías adicionales, estancias prolongadas en UCI y sobrecarga del personal médico.
+
+\subsection{Impacto del proyecto}
+
+El proyecto tiene un impacto en el ámbito clínico, social e institucional. Desde el punto de vista clínico, la implementación del modelo permitirá reducir la mortalidad asociada a complicaciones relacionadas con shock hemorrágico, pues al anticipar este riesgo de forma temprana se puede evitar la falla multiorgánica, mejorando los resultados postoperatorios. Esto a su vez, contribuye al uso más eficiente de los recursos hospitalarios, ya que al disminuir la necesidad de estancias prolongadas en unidades de cuidados intensivos se logra una reducción en los costos, así como una mejor planificación de insumos como sangre y medicamentos.
+
+Además, se promueve la innovación tecnológica en el sistema de salud de Colombia, que fortalece la colaboración entre las áreas de medicina e ingeniería e integra factores individuales del paciente. Esto transforma el paradigma del monitoreo, que actualmente funciona mediante una vigilancia basada en umbrales fijos y la experiencia del profesional de la salud, donde los indicadores no son lo suficientemente claros. Al predecir mediante un modelo el riesgo, se obtiene una estrategia más personalizada, dinámica y anticipatoria, especialmente importante en poblaciones de alto riesgo, donde la tolerancia a la hemorragia es mínima.
+
+\subsection{Objetivo General}
+
+Desarrollar y validar un modelo de inteligencia artificial que permita la predicción temprana del riesgo de shock hemorrágico en pacientes sometidos a cirugía mayor no cardiaca, integrando datos clínicos preoperatorios e intraoperatorios, con el fin de apoyar la toma de decisiones médicas oportunas y reducir complicaciones asociadas.
+
+\subsection{Objetivos Específicos}
+
+\begin{enumerate}[label=\alph*)]
+    \item Construir un conjunto de datos estructurado a partir de registros clínicos preoperatorios e intraoperatorios, mediante procesos de limpieza, transformación y anonimización de la información.
+    \item Definir los criterios clínicos y operativos para el diagnóstico de shock hemorrágico, estableciendo un marco consensuado con profesionales médicos y basado en literatura especializada.
+    \item Identificar y caracterizar las variables clínicas más relevantes asociadas a la aparición de shock hemorrágico, considerando factores de riesgo individuales, comorbilidades y características demográficas.
+    \item Entrenar y validar diferentes modelos de inteligencia artificial supervisados, evaluando su desempeño con métricas como sensibilidad, especificidad, F1-score, AUC-ROC y calibración.
+    \item Diseñar y ejecutar un proceso de validación clínica inicial mediante la retroalimentación de expertos y/o la simulación de escenarios quirúrgicos históricos, con el fin de evaluar la aplicabilidad del modelo en un entorno real.
+    \item Proponer una estrategia de integración del modelo predictivo en sistemas de información quirúrgica, contemplando aspectos técnicos, clínicos y de usabilidad para apoyar la toma de decisiones preventivas.
+\end{enumerate}
+
+\newpage
+
+% -----------------------------------------------------------------------------
+% 2. MARCO TEÓRICO

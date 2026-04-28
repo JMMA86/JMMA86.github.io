@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exp 5 F1-F2 Comparativo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <div class="instructions">Usa las flechas ← → o la rueda para navegar</div>
+  <div class="slide-container">
+    <div class="slide slide-content">
+      <div class="section-header">Fase · Exp5 · Comparativa directa</div>
+      <h2>F1-F2: XGB VS TREE</h2>
+      <p class="subtitle-section">Comparacion del balance entre precision y recall con enfasis clinico</p>
+
+      <table class="results-table">
+        <thead><tr><th>Modelo</th><th>F1</th><th>F2</th></tr></thead>
+        <tbody>
+          <tr class="highlight-best"><td>xgboost</td><td>0.5118</td><td>0.6778</td></tr>
+          <tr><td>decision_tree</td><td>0.5122</td><td>0.6661</td></tr>
+        </tbody>
+      </table>
+
+      <div class="image-grid">
+        <div class="image-card">
+          <h4>F1-F2 - xgboost</h4>
+          <img src="../../experiments/exp_05_hyperparameter_search/models/xgboost/plots/perf_f1_f2.png" alt="f1 f2 xgb" />
+        </div>
+        <div class="image-card">
+          <h4>F1-F2 - decision_tree</h4>
+          <img src="../../experiments/exp_05_hyperparameter_search/models/decision_tree/plots/perf_f1_f2.png" alt="f1 f2 tree" />
+        </div>
+      </div>
+
+      <div class="source-box">Graficas tomadas de exp_05_hyperparameter_search modelo xgboost y decision_tree</div>
+      <div class="page-number">16</div>
+    </div>
+  </div>
+  <div class="navigation" id="navigation"></div>
+  <script src="./assets/presentation.js"></script>
+</body>
+</html>

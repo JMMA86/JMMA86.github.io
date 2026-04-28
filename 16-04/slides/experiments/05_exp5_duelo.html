@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exp 5 Duelo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <div class="instructions">Usa las flechas ← → o la rueda para navegar</div>
+  <div class="slide-container">
+    <div class="slide slide-content">
+      <div class="section-header">Fase Â· Fase 4</div>
+      <h2>EXPERIMENTO 5 - DUELO FINAL</h2>
+      <p class="subtitle-section">Optimización con busqueda de hiperparámetros (Optuna): xgboost vs decision_tree</p>
+
+      <table class="results-table">
+        <thead>
+          <tr><th>Criterio</th><th>xgboost</th><th>decision_tree</th></tr>
+        </thead>
+        <tbody>
+          <tr class="highlight-best"><td>AUC ROC</td><td>0.6391</td><td>0.6227</td></tr>
+          <tr class="highlight-best"><td>Recall</td><td>0.8647</td><td>0.8329</td></tr>
+          <tr><td>Specificity</td><td>0.2854</td><td>0.3304</td></tr>
+          <tr><td>F1</td><td>0.5118</td><td>0.5122</td></tr>
+          <tr><td>Kappa</td><td>0.1100</td><td>0.1227</td></tr>
+        </tbody>
+      </table>
+
+      <div class="image-grid">
+        <div class="image-card">
+          <h4>ROC comparativa (Exp 5)</h4>
+          <img src="../../experiments/exp_05_hyperparameter_search/comparison_plots/roc_comparison.png" alt="ROC exp5" />
+        </div>
+        <div class="image-card">
+          <h4>Feature importance del ganador (xgboost)</h4>
+          <img src="../../experiments/exp_05_hyperparameter_search/models/xgboost/plots/feature_importance.png" alt="FI xgboost exp5" />
+        </div>
+      </div>
+
+      <div class="conclusions-box">
+        <h3>Decisión manual de modelo ganador</h3>
+        <p>XGBoost gana por AUC y recall (prioridad clínica de detección). Decisión Tree queda como modelo interpretable por mejor especificidad/kappa relativa.</p>
+      </div>
+
+      <div class="source-box">Gráficas tomadas de exp_05_hyperparameter_search modelo comparacion_general y exp_05_hyperparameter_search modelo xgboost</div>
+      <div class="page-number">12</div>
+    </div>
+  </div>
+  <div class="navigation" id="navigation"></div>
+  <script src="./assets/presentation.js"></script>
+</body>
+</html>
+

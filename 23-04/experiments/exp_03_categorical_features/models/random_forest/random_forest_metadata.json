@@ -1,0 +1,238 @@
+{
+  "model_name": "random_forest",
+  "pipeline_version": "exp_03_categorical_features",
+  "dataset_version": "v1",
+  "n_samples": 1176,
+  "n_features": 21,
+  "feature_names": [
+    "EDAD",
+    "HB_PREQX",
+    "GENERO",
+    "SANGRADO_MAYOR",
+    "ACT_FISICA_METS",
+    "HIPERTENSION",
+    "DIABETES",
+    "ENFERMEDAD_CORONARIA",
+    "FALLA_CARDIACA",
+    "HIPOTIROIDISMO",
+    "ERC",
+    "INMUNOSUPRESION",
+    "OBESIDAD",
+    "HIPERTENSION_PULMONAR",
+    "EPOC",
+    "ASMA",
+    "ENF_CEREBROVASCULAR",
+    "CANCER_ACTIVO",
+    "TABAQUISMO",
+    "EDAD_CAT",
+    "HB_CAT"
+  ],
+  "class_distribution": {
+    "0.0": 799,
+    "1.0": 377
+  },
+  "training_time_seconds": 0.504257,
+  "timestamp": "2026-04-21T22:42:49.660650",
+  "scale_features": true,
+  "model_params": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": null,
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 100,
+    "n_jobs": null,
+    "oob_score": false,
+    "random_state": null,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "cv_results": {
+    "model_name": "random_forest",
+    "n_folds": 5,
+    "cv_time_seconds": 6.896916,
+    "metrics": {
+      "accuracy": {
+        "test_mean": 0.6352217814641183,
+        "test_std": 0.012171816024991686,
+        "train_mean": 0.9774662536459628,
+        "train_std": 0.003997481319155074,
+        "test_scores": [
+          0.614406779661017,
+          0.6340425531914894,
+          0.6425531914893617,
+          0.6340425531914894,
+          0.6510638297872341
+        ],
+        "train_scores": [
+          0.9787234042553191,
+          0.9819341126461212,
+          0.9766206163655685,
+          0.9702444208289054,
+          0.9798087141339001
+        ]
+      },
+      "precision": {
+        "test_mean": 0.4044602812988817,
+        "test_std": 0.026046251377061524,
+        "train_mean": 0.9815800373887809,
+        "train_std": 0.0074935964453706075,
+        "test_scores": [
+          0.3684210526315789,
+          0.39622641509433965,
+          0.42105263157894735,
+          0.39215686274509803,
+          0.4444444444444444
+        ],
+        "train_scores": [
+          0.986159169550173,
+          0.9863481228668942,
+          0.9861111111111112,
+          0.9823943661971831,
+          0.9668874172185431
+        ]
+      },
+      "recall": {
+        "test_mean": 0.29175438596491227,
+        "test_std": 0.021823884459518914,
+        "train_mean": 0.9476271149149633,
+        "train_std": 0.015560585838991005,
+        "test_scores": [
+          0.27631578947368424,
+          0.28,
+          0.32,
+          0.26666666666666666,
+          0.3157894736842105
+        ],
+        "train_scores": [
+          0.946843853820598,
+          0.956953642384106,
+          0.9403973509933775,
+          0.9238410596026491,
+          0.9700996677740864
+        ]
+      },
+      "f1": {
+        "test_mean": 0.33884838480233215,
+        "test_std": 0.022985590992761568,
+        "train_mean": 0.964190287944675,
+        "train_std": 0.006634039874548403,
+        "test_scores": [
+          0.3157894736842105,
+          0.328125,
+          0.36363636363636365,
+          0.31746031746031744,
+          0.36923076923076925
+        ],
+        "train_scores": [
+          0.9661016949152542,
+          0.9714285714285714,
+          0.9627118644067797,
+          0.9522184300341296,
+          0.9684908789386402
+        ]
+      },
+      "roc_auc": {
+        "test_mean": 0.5845451961271102,
+        "test_std": 0.01830919961370727,
+        "train_mean": 0.998449240333293,
+        "train_std": 0.0004383205337614094,
+        "test_scores": [
+          0.5619243421052631,
+          0.564125,
+          0.5900000000000001,
+          0.6009583333333333,
+          0.6057183051969547
+        ],
+        "train_scores": [
+          0.9987574022949064,
+          0.9989014291784555,
+          0.9984842831825389,
+          0.997637036346112,
+          0.9984660506644517
+        ]
+      },
+      "f2": {
+        "test_mean": 0.3089078840198011,
+        "test_std": 0.022206921301579922,
+        "train_mean": 0.9541571251244136,
+        "train_std": 0.011824284875317182,
+        "test_scores": [
+          0.29085872576177285,
+          0.29745042492917845,
+          0.33613445378151263,
+          0.2849002849002849,
+          0.33519553072625696
+        ],
+        "train_scores": [
+          0.9544541192230409,
+          0.9626915389740173,
+          0.9491978609625669,
+          0.9349865951742627,
+          0.9694555112881806
+        ]
+      },
+      "kappa": {
+        "test_mean": 0.09607290338193741,
+        "test_std": 0.02970218034277631,
+        "train_mean": 0.9477615536720583,
+        "train_std": 0.00948013232575238,
+        "test_scores": [
+          0.054919908466819156,
+          0.08676005422503386,
+          0.12149532710280375,
+          0.07969034608378867,
+          0.13749888103124164
+        ],
+        "train_scores": [
+          0.9506071640630337,
+          0.95822397714423,
+          0.9456979629522765,
+          0.9306430808918371,
+          0.9536355833089137
+        ]
+      }
+    }
+  },
+  "hyperparameter_search": {},
+  "optimized_params": {},
+  "threshold_optimization": {
+    "criterion": "maximize_precision",
+    "constraint": "recall >= 0.80",
+    "threshold_candidates": [
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5
+    ],
+    "optimal_threshold": 0.2
+  },
+  "operating_point": {
+    "threshold": 0.2,
+    "confusion_matrix": {
+      "tp": 268,
+      "fp": 473,
+      "tn": 326,
+      "fn": 109
+    },
+    "metrics": {
+      "recall": 0.7108753315649867,
+      "precision": 0.3616734143049933,
+      "specificity": 0.40801001251564456,
+      "f1_score": 0.47942754919499103,
+      "f2_score": 0.5958203646064918,
+      "kappa": 0.09473132871461554,
+      "accuracy": 0.5051020408163265
+    }
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "experiment": "exp_05_hyperparameter_search",
+  "model_name": "catboost",
+  "plots": {
+    "roc_curve_cv": {
+      "description": "ROC Curve based on Train CV validation probabilities",
+      "path": "roc_curve_cv.png",
+      "metrics": {
+        "roc_auc": 0.6182486738662695
+      }
+    },
+    "calibration_curve_cv": {
+      "description": "Calibration curve based on Train CV validation probabilities",
+      "path": "calibration_curve_cv.png",
+      "metrics": {
+        "brier_score": 0.21609439061499172
+      }
+    },
+    "precision_recall": {
+      "description": "Precision-Recall curve on Test set",
+      "path": "precision_recall_curve.png",
+      "metrics": {
+        "average_precision": 0.4997322007116454
+      }
+    },
+    "decision_threshold": {
+      "description": "Decision threshold curve on Test set highlighting optimal choice",
+      "path": "threshold_analysis.png",
+      "metrics": {
+        "optimal_threshold": 0.36000000000000015
+      }
+    },
+    "feature_importance": {
+      "description": "Top feature importances from the trained model",
+      "path": "feature_importance.png",
+      "metrics": {},
+      "top_features": [
+        {
+          "feature": "SANGRADO_MAYOR",
+          "importance": 52.56047366863534,
+          "pct": 52.56
+        },
+        {
+          "feature": "EDAD",
+          "importance": 30.640554913689268,
+          "pct": 30.64
+        },
+        {
+          "feature": "HB_PREQX",
+          "importance": 5.505111698617417,
+          "pct": 5.51
+        },
+        {
+          "feature": "SINDROME_METABOLICO",
+          "importance": 3.1449340536483597,
+          "pct": 3.14
+        },
+        {
+          "feature": "CANCER_ACTIVO",
+          "importance": 1.9945719152195722,
+          "pct": 1.99
+        },
+        {
+          "feature": "CARGA_CARDIOVASCULAR",
+          "importance": 1.6395528853743018,
+          "pct": 1.64
+        },
+        {
+          "feature": "GENERO",
+          "importance": 1.1584156868835727,
+          "pct": 1.16
+        },
+        {
+          "feature": "CARGA_PULMONAR",
+          "importance": 1.073472828056832,
+          "pct": 1.07
+        },
+        {
+          "feature": "HIPOTIROIDISMO",
+          "importance": 0.5823013177344162,
+          "pct": 0.58
+        },
+        {
+          "feature": "TABAQUISMO",
+          "importance": 0.4295582483970528,
+          "pct": 0.43
+        },
+        {
+          "feature": "ACT_FISICA_METS",
+          "importance": 0.4221668153894451,
+          "pct": 0.42
+        },
+        {
+          "feature": "HIPERTENSION",
+          "importance": 0.33006372201863843,
+          "pct": 0.33
+        },
+        {
+          "feature": "ERC",
+          "importance": 0.23493221767221198,
+          "pct": 0.23
+        },
+        {
+          "feature": "DIABETES",
+          "importance": 0.1493541341403728,
+          "pct": 0.15
+        },
+        {
+          "feature": "OBESIDAD",
+          "importance": 0.13453589452319356,
+          "pct": 0.13
+        }
+      ]
+    },
+    "perf_precision_npv": {
+      "description": "Grouped bar plot without space comparing Precision and NPV from Operating Point",
+      "path": "perf_precision_npv.png",
+      "metrics": {
+        "precision": 0.3595890410958904,
+        "npv": 0.7933333333333333
+      }
+    },
+    "perf_recall_specificity": {
+      "description": "Grouped bar plot without space comparing Recall and Specificity from Operating Point",
+      "path": "perf_recall_specificity.png",
+      "metrics": {
+        "recall": 0.8355437665782494,
+        "specificity": 0.2978723404255319
+      }
+    },
+    "perf_f1_f2": {
+      "description": "Grouped bar plot without space comparing F1 and F2 from Operating Point",
+      "path": "perf_f1_f2.png",
+      "metrics": {
+        "f1_score": 0.5027932960893855,
+        "f2_score": 0.6606543624161074
+      }
+    },
+    "accuracy": {
+      "description": "Single bar plot for isolated accuracy from operating point",
+      "path": "accuracy.png",
+      "metrics": {
+        "accuracy": 0.47023809523809523
+      }
+    },
+    "kappa": {
+      "description": "Single bar plot for isolated kappa from operating point",
+      "path": "kappa.png",
+      "metrics": {
+        "kappa": 0.0988605502420592
+      }
+    },
+    "confusion_matrix": {
+      "description": "Confusion matrix with percentages using optimal threshold",
+      "path": "confusion_matrix_normalized.png",
+      "metrics": {
+        "counts": {
+          "tp": 315,
+          "fp": 561,
+          "tn": 238,
+          "fn": 62
+        },
+        "percentages": {
+          "tn_pct": 29.79,
+          "fp_pct": 70.21,
+          "fn_pct": 16.45,
+          "tp_pct": 83.55
+        }
+      }
+    },
+    "roc_boxplot_cv": {
+      "description": "Boxplot showing ROC-AUC distribution across CV folds",
+      "path": "cv_fold_plots/cv_fold_roc_auc.png",
+      "metrics": {
+        "mean": 0.6182486738662695,
+        "std": 0.05187009246134965,
+        "folds": [
+          0.5936266447368421,
+          0.5374583333333334,
+          0.6911249999999999,
+          0.6190416666666667,
+          0.6499917245945052
+        ]
+      }
+    },
+    "shap_summary": {
+      "description": "SHAP summary plot showing feature impact distribution",
+      "path": "shap_summary.png",
+      "metrics": {}
+    },
+    "shap_bar": {
+      "description": "SHAP bar plot showing mean absolute feature importance",
+      "path": "shap_bar.png",
+      "metrics": {}
+    },
+    "shap_waterfall": {
+      "description": "SHAP waterfall plot for single prediction explanation",
+      "path": "shap_waterfall.png",
+      "metrics": {
+        "sample_index": 0
+      }
+    }
+  },
+  "shap_values": {
+    "features": [
+      "EDAD",
+      "SANGRADO_MAYOR",
+      "HB_PREQX",
+      "GENERO",
+      "EPOC",
+      "ACT_FISICA_METS",
+      "HIPERTENSION_PULMONAR",
+      "ERC",
+      "OBESIDAD",
+      "INMUNOSUPRESION",
+      "ENFERMEDAD_CORONARIA",
+      "HIPOTIROIDISMO",
+      "HIPERTENSION",
+      "DIABETES",
+      "FALLA_CARDIACA",
+      "ASMA",
+      "ENF_CEREBROVASCULAR",
+      "CANCER_ACTIVO",
+      "TABAQUISMO",
+      "CARGA_CARDIOVASCULAR"
+    ],
+    "mean_abs_shap": [
+      0.11190731889283878,
+      0.04478439576674585,
+      0.04239809509443248,
+      0.002188126088282658,
+      0.0017066246958147265,
+      0.0016319340036294381,
+      0.0012397286446981933,
+      0.001207251987924514,
+      0.00042428767050868555,
+      0.00034874142697161633,
+      0.00016362146252278166,
+      0.00015750717986177514,
+      0.00010420424409982425,
+      2.9021914138515385e-05,
+      1.5182306138061827e-05,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "total_features": 22,
+    "description": "Mean absolute SHAP values indicating feature importance"
+  }
+}

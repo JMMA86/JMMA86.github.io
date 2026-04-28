@@ -1,0 +1,212 @@
+\documentclass[12pt, letterpaper]{article}
+
+% --- Paquetes de configuración ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel} % Español
+\usepackage{amsmath} % Para matemáticas avanzadas
+\usepackage{geometry}
+\geometry{left=3cm, right=3cm, top=3cm, bottom=3cm} % Márgenes estándar
+\usepackage{graphicx} % Para imágenes
+\usepackage{subcaption} % Para subfiguras lado a lado
+\usepackage{float}    % Para posicionamiento exacto de figuras con [H]
+\usepackage{tikz}     % Para el marco azul
+\usetikzlibrary{calc}
+\usepackage{enumitem} % Para listas personalizadas
+\usepackage{hyperref} % Para enlaces en la ToC
+\usepackage{titlesec} % Para formato de títulos
+\usepackage{xltabular} % Para tablas que se dividen en varias páginas
+\usepackage{ragged2e} % Para justificar texto en tablas
+
+% --- Importar definiciones de métricas ---
+\input{metrics.tex}
+
+% Configuración de enlaces (sin recuadros rojos)
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+% Configuración de párrafos
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{1cm}
+
+% Configuración de títulos centrados (solo secciones)
+\usepackage{sectsty}
+\sectionfont{\centering}
+
+% Configuración de altura de celdas en tablas
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% PÁGINA 1: PORTADA
+% -----------------------------------------------------------------------------
+\begin{titlepage}
+    % Marco Azul usando TikZ
+    \begin{tikzpicture}[remember picture, overlay]
+        \draw[blue!90!black, line width=4pt] 
+            ($(current page.north west) + (1.5cm,-1.5cm)$) 
+            rectangle 
+            ($(current page.south east) + (-1.5cm,1.5cm)$);
+    \end{tikzpicture}
+
+    \centering
+    
+    % Logotipo Universidad ICESI
+    \includegraphics[width=0.4\textwidth]{images/image001.png} 
+    
+    \vspace{2cm}
+    
+    {\Large \textbf{Predicción temprana de shock hemorrágico en pacientes sometidos a cirugía mayor no cardiaca mediante modelos de inteligencia artificial}}
+    
+    \vspace{1.5cm}
+    
+    {\Large \textbf{Proyecto de Grado}}
+    
+    \vspace{2cm}
+    
+    \textbf{Autores:}\\
+    Cristian Eduardo Botina Carpio\\
+    Juan Manuel Marín Angarita\\
+    Óscar Andrés Gómez Lozano
+    
+    \vspace{1cm}
+    
+    \textbf{Tutores:}\\
+    Ángela Villota Gómez
+    
+    \vfill
+    
+    \textbf{Universidad Icesi}\\
+    Facultad Barberi de Ingeniería, Diseño y Ciencias Aplicadas\\
+    Ingeniería de Sistemas\\
+    Santiago De Cali\\
+    2025
+    
+\end{titlepage}
+
+% -----------------------------------------------------------------------------
+% PÁGINA 2: TABLA DE CONTENIDO
+% -----------------------------------------------------------------------------
+
+\tableofcontents
+\newpage
+
+% -----------------------------------------------------------------------------
+% PÁGINA 3: LISTA DE ACRÓNIMOS
+% -----------------------------------------------------------------------------
+\section*{Lista de acrónimos}
+\addcontentsline{toc}{section}{Lista de acrónimos}
+
+\begin{description}[style=multiline, leftmargin=3.5cm, font=\bfseries]
+    \item[ACS] Sociedad \textbf{A}mericana de \textbf{C}irujanos (\textbf{A}merican \textbf{C}ollege of \textbf{S}urgeons)
+    \item[AUC-ROC] \textbf{Á}rea \textbf{B}ajo la \textbf{C}urva ROC (\textbf{A}rea \textbf{U}nder the \textbf{R}eceiver \textbf{O}perating \textbf{C}haracteristic Curve)
+    \item[CO] Gasto \textbf{C}ardíaco (\textbf{C}ardiac \textbf{O}utput)
+    \item[CV] \textbf{V}alidación \textbf{C}ruzada (\textbf{C}ross \textbf{V}alidation)
+    \item[DCS] \textbf{C}irugía de \textbf{C}ontrol de \textbf{D}año (\textbf{D}amage \textbf{C}ontrol \textbf{S}urgery)
+    \item[DNN] \textbf{R}edes \textbf{N}euronales \textbf{P}rofundas (\textbf{D}eep \textbf{N}eural \textbf{N}etworks)
+    \item[DT] \textbf{Á}rbol de \textbf{D}ecisión (\textbf{D}ecision \textbf{T}ree)
+    \item[FC] \textbf{F}recuencia \textbf{C}ardíaca
+    \item[FVL] \textbf{F}undación \textbf{V}alle de \textbf{L}ili
+    \item[GBM] \textbf{M}áquina de \textbf{R}efuerzo de \textbf{G}radiente (\textbf{G}radient \textbf{B}oosting \textbf{M}achine)
+    \item[IA] \textbf{I}nteligencia \textbf{A}rtificial
+    \item[IMC] \textbf{Í}ndice de \textbf{M}asa \textbf{C}orporal
+    \item[IS] \textbf{Í}ndice de \textbf{S}hock
+    \item[KNN] \textbf{K} vecinos más cercanos (\textbf{K} \textbf{N}earest \textbf{N}eighbors)
+    \item[LightGBM] \textbf{M}áquina de \textbf{R}efuerzo de \textbf{G}radiente \textbf{L}igera (\textbf{Light} \textbf{G}radient \textbf{B}oosting \textbf{M}achine)
+    \item[ML] \textbf{A}prendizaje \textbf{A}utomático (\textbf{M}achine \textbf{L}earning)
+    \item[MSI] \textbf{Í}ndice de \textbf{S}hock \textbf{M}odificado (\textbf{M}odified \textbf{S}hock \textbf{I}ndex)
+    \item[NB] \textbf{N}aive \textbf{B}ayes (Clasificador probabilístico basado en el teorema de Bayes)
+    \item[PAM] \textbf{P}resión \textbf{A}rterial \textbf{M}edia
+    \item[PAS] \textbf{P}resión \textbf{A}rterial \textbf{S}istólica
+    \item[PPH] \textbf{H}emorragia \textbf{P}ost\textbf{p}ancreatectomía (\textbf{P}ost\textbf{p}ancreatectomy \textbf{H}aemorrhage)
+    \item[RPT] \textbf{R}esistencia \textbf{P}eriférica \textbf{T}otal
+    \item[SHAP] E\textbf{x}plicaciones \textbf{A}ditivas de \textbf{S}hapley (\textbf{SH}apley \textbf{A}dditive ex\textbf{P}lanations)
+    \item[SMOTE] Técnica de \textbf{S}obremuestreo de \textbf{M}inoría \textbf{S}intética (\textbf{S}ynthetic \textbf{M}inority \textbf{O}ver-sampling \textbf{TE}chnique)
+    \item[THR] \textbf{R}esucitación \textbf{H}ipotensiva \textbf{T}itulada (\textbf{T}itrated \textbf{H}ypotensive \textbf{R}esuscitation)
+    \item[TRIPOD] Informe \textbf{T}ransparente de un modelo de p\textbf{r}edicción mult\textbf{i}variable (\textbf{T}ransparent \textbf{R}eporting of a mult\textbf{i}variable \textbf{P}rediction model for Individual Prognosis \textbf{o}r \textbf{D}iagnosis)
+    \item[UCI] \textbf{U}nidad de \textbf{C}uidados \textbf{I}ntensivos
+    \item[VO] \textbf{V}ariable \textbf{O}bjetivo
+    \item[VS] \textbf{V}olumen \textbf{S}anguíneo
+\end{description}
+\newpage
+
+% -----------------------------------------------------------------------------
+% PÁGINA 4: VACÍA
+% -----------------------------------------------------------------------------
+\mbox{}               
+\newpage        
+
+% -----------------------------------------------------------------------------
+% PÁGINA 4: GLOSARIO
+% -----------------------------------------------------------------------------
+\section*{Glosario de términos}
+\addcontentsline{toc}{section}{Glosario de términos}
+
+\begin{description}[style=unboxed, leftmargin=0cm]
+    \item[\textbf{Cirugía mayor no cardíaca:}] Procedimientos quirúrgicos extensos, de alta complejidad y duración, realizados fuera del sistema cardiovascular (por ejemplo, abdominales, ortopédicas mayores, oncológicas).
+    
+    \item[\textbf{Falla multiorgánica:}] Condición crítica en la que dos o más órganos vitales (como riñones, hígado, pulmones o corazón) dejan de funcionar adecuadamente, generalmente como consecuencia de un shock no tratado.
+    
+    \item[\textbf{Frecuencia cardíaca:}] Número de contracciones del corazón por minuto. Es un parámetro vital que aumenta (taquicardia) como mecanismo compensatorio ante la pérdida de volumen sanguíneo.
+    
+    \item[\textbf{Gasto cardíaco:}] Volumen total de sangre que el ventrículo izquierdo del corazón bombea hacia la aorta cada minuto. Se calcula como el producto de la frecuencia cardíaca por el volumen sistólico ($CO = FC \times VSistolico$).
+    
+    \item[\textbf{Hipovolemia:}] Estado patológico caracterizado por una reducción significativa del volumen de sangre circulante, que puede llevar a shock si no se corrige.
+    
+    \item[\textbf{Hipoperfusión tisular:}] Disminución del flujo sanguíneo hacia los tejidos, lo que impide el suministro adecuado de oxígeno y nutrientes, y la eliminación de desechos metabólicos. Es la base fisiopatológica del shock.
+    
+    \item[\textbf{Intervalo RR:}] Tiempo transcurrido entre dos ondas R consecutivas en un electrocardiograma. Su variabilidad es un indicador sensible de cambios en la función autonómica y puede anticipar eventos críticos.
+    
+    \item[\textbf{Perfusión tisular:}] Proceso mediante el cual la sangre, rica en oxígeno y nutrientes, es distribuida a través del sistema circulatorio para alcanzar todos los tejidos y órganos del cuerpo.
+    
+    \item[\textbf{Resistencia Periférica Total (RPT):}] Fuerza de oposición que encuentran los vasos sanguíneos (principalmente arteriolas) al flujo de la sangre. Es un determinante clave de la presión arterial junto con el gasto cardíaco.
+    
+    \item[\textbf{Shock hemorrágico:}] Tipo de shock hipovolémico causado específicamente por una pérdida aguda y significativa de volumen sanguíneo, que compromete la perfusión de órganos vitales y puede conducir a la muerte si no se trata.
+    
+    \item[\textbf{Taquicardia compensatoria:}] Respuesta fisiológica adaptativa en la que el corazón aumenta su frecuencia cardíaca para intentar mantener un gasto cardíaco adecuado y, por ende, la perfusión tisular, frente a una disminución del volumen sanguíneo.
+\end{description}
+\newpage
+
+% -----------------------------------------------------------------------------
+% PÁGINA 5: LISTA DE TABLAS E INICIO DE INTRODUCCIÓN
+% -----------------------------------------------------------------------------
+\listoftables
+\addcontentsline{toc}{section}{Índice de tablas}
+\newpage
+
+% -----------------------------------------------------------------------------
+% CONTENIDO PRINCIPAL
+% -----------------------------------------------------------------------------
+
+% -----------------------------------------------------------------------------
+% 1. INTRODUCCIÓN
+% -----------------------------------------------------------------------------
+\input{sections/01_introduccion.tex}
+\newpage
+
+\input{sections/02_marco_teorico.tex}
+\newpage
+
+\input{sections/03_estado_arte.tex}
+\newpage
+
+\input{sections/04_metodologia.tex}
+\newpage
+
+\input{sections/05_experimentos.tex}
+\newpage
+
+\input{sections/06_conclusiones.tex}
+\newpage
+
+\input{sections/07_anexos.tex}
+\newpage
+
+\input{sections/08_referencias.tex}
+
+\end{document}

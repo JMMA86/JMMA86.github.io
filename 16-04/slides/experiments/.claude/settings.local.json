@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python fix_encoding.py)",
+      "Bash(bash fix_encoding.sh)",
+      "Bash(python fix_chars.py)"
+    ]
+  }
+}

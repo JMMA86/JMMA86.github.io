@@ -1,0 +1,233 @@
+{
+  "model_name": "decision_tree",
+  "pipeline_version": "exp_02_aggregated_features",
+  "dataset_version": "v1",
+  "n_samples": 1176,
+  "n_features": 22,
+  "feature_names": [
+    "EDAD",
+    "HB_PREQX",
+    "GENERO",
+    "SANGRADO_MAYOR",
+    "ACT_FISICA_METS",
+    "HIPERTENSION",
+    "DIABETES",
+    "ENFERMEDAD_CORONARIA",
+    "FALLA_CARDIACA",
+    "HIPOTIROIDISMO",
+    "ERC",
+    "INMUNOSUPRESION",
+    "OBESIDAD",
+    "HIPERTENSION_PULMONAR",
+    "EPOC",
+    "ASMA",
+    "ENF_CEREBROVASCULAR",
+    "CANCER_ACTIVO",
+    "TABAQUISMO",
+    "CARGA_CARDIOVASCULAR",
+    "CARGA_PULMONAR",
+    "SINDROME_METABOLICO"
+  ],
+  "class_distribution": {
+    "0.0": 799,
+    "1.0": 377
+  },
+  "training_time_seconds": 0.018747,
+  "timestamp": "2026-04-21T22:40:22.522733",
+  "scale_features": true,
+  "model_params": {
+    "ccp_alpha": 0.0,
+    "class_weight": null,
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": null,
+    "max_leaf_nodes": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "random_state": null,
+    "splitter": "best"
+  },
+  "cv_results": {
+    "model_name": "decision_tree",
+    "n_folds": 5,
+    "cv_time_seconds": 3.024823,
+    "metrics": {
+      "accuracy": {
+        "test_mean": 0.6148178867652362,
+        "test_std": 0.01319480136827974,
+        "train_mean": 0.9778915594546318,
+        "train_std": 0.00405298396662489,
+        "test_scores": [
+          0.5889830508474576,
+          0.6170212765957447,
+          0.625531914893617,
+          0.6212765957446809,
+          0.6212765957446809
+        ],
+        "train_scores": [
+          0.9797872340425532,
+          0.9819341126461212,
+          0.9776833156216791,
+          0.9702444208289054,
+          0.9798087141339001
+        ]
+      },
+      "precision": {
+        "test_mean": 0.39397550855371466,
+        "test_std": 0.024320829577250295,
+        "train_mean": 0.9985989105363892,
+        "train_std": 0.001716016607501452,
+        "test_scores": [
+          0.352112676056338,
+          0.38095238095238093,
+          0.4155844155844156,
+          0.40789473684210525,
+          0.41333333333333333
+        ],
+        "train_scores": [
+          1.0,
+          0.9965156794425087,
+          1.0,
+          1.0,
+          0.9964788732394366
+        ]
+      },
+      "recall": {
+        "test_mean": 0.37936842105263163,
+        "test_std": 0.04532412594563988,
+        "train_mean": 0.9323689247761326,
+        "train_std": 0.013631831513592535,
+        "test_scores": [
+          0.32894736842105265,
+          0.32,
+          0.4266666666666667,
+          0.41333333333333333,
+          0.40789473684210525
+        ],
+        "train_scores": [
+          0.9368770764119602,
+          0.9470198675496688,
+          0.9304635761589404,
+          0.9072847682119205,
+          0.9401993355481728
+        ]
+      },
+      "f1": {
+        "test_mean": 0.386041365187474,
+        "test_std": 0.03463915877867078,
+        "train_mean": 0.9642874285968593,
+        "train_std": 0.006835195075683122,
+        "test_scores": [
+          0.3401360544217687,
+          0.34782608695652173,
+          0.42105263157894735,
+          0.4105960264900662,
+          0.4105960264900662
+        ],
+        "train_scores": [
+          0.967409948542024,
+          0.9711375212224108,
+          0.9639794168096055,
+          0.9513888888888888,
+          0.9675213675213675
+        ]
+      },
+      "roc_auc": {
+        "test_mean": 0.5568291625289639,
+        "test_std": 0.024244577184625003,
+        "train_mean": 0.9987957315321416,
+        "train_std": 0.0004575117053570451,
+        "test_scores": [
+          0.524671052631579,
+          0.5375833333333333,
+          0.572125,
+          0.556875,
+          0.5928914266799074
+        ],
+        "train_scores": [
+          0.9989653684380183,
+          0.9992382551378913,
+          0.9988159272041373,
+          0.997922042927173,
+          0.9990370639534883
+        ]
+      },
+      "f2": {
+        "test_mean": 0.381904009512078,
+        "test_std": 0.041114787073832045,
+        "train_mean": 0.944866267770091,
+        "train_std": 0.01102808235535505,
+        "test_scores": [
+          0.3333333333333333,
+          0.3305785123966942,
+          0.4244031830238727,
+          0.4122340425531915,
+          0.40897097625329815
+        ],
+        "train_scores": [
+          0.9488559892328399,
+          0.9565217391304348,
+          0.9435862995298858,
+          0.9244264507422402,
+          0.9509408602150538
+        ]
+      },
+      "kappa": {
+        "test_mean": 0.10588769038398253,
+        "test_std": 0.03887206211459843,
+        "train_mean": 0.9483082895897974,
+        "train_std": 0.00969106897729566,
+        "test_scores": [
+          0.0421757322175732,
+          0.07963446475195823,
+          0.14439387670666115,
+          0.13161718912186005,
+          0.13161718912186005
+        ],
+        "train_scores": [
+          0.9527833001988072,
+          0.9580022105481477,
+          0.9478435067660124,
+          0.9300223095718687,
+          0.952890120864151
+        ]
+      }
+    }
+  },
+  "hyperparameter_search": {},
+  "optimized_params": {},
+  "threshold_optimization": {
+    "criterion": "maximize_precision",
+    "constraint": "recall >= 0.80",
+    "threshold_candidates": [
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5
+    ],
+    "optimal_threshold": 0.2
+  },
+  "operating_point": {
+    "threshold": 0.2,
+    "confusion_matrix": {
+      "tp": 153,
+      "fp": 246,
+      "tn": 553,
+      "fn": 224
+    },
+    "metrics": {
+      "recall": 0.40583554376657827,
+      "precision": 0.38345864661654133,
+      "specificity": 0.6921151439299124,
+      "f1_score": 0.3943298969072165,
+      "f2_score": 0.40115364446775037,
+      "kappa": 0.09646412633024382,
+      "accuracy": 0.6003401360544217
+    }
+  }
+}

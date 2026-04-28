@@ -1,0 +1,156 @@
+{
+  "experiment": "exp_02_aggregated_features",
+  "model_name": "random_forest",
+  "plots": {
+    "roc_curve_cv": {
+      "description": "ROC Curve based on Train CV validation probabilities",
+      "path": "roc_curve_cv.png",
+      "metrics": {
+        "roc_auc": 0.5907302797087057
+      }
+    },
+    "calibration_curve_cv": {
+      "description": "Calibration curve based on Train CV validation probabilities",
+      "path": "calibration_curve_cv.png",
+      "metrics": {
+        "brier_score": 0.24214550870469978
+      }
+    },
+    "precision_recall": {
+      "description": "Precision-Recall curve on Test set",
+      "path": "precision_recall_curve.png",
+      "metrics": {
+        "average_precision": 0.36144060044158655
+      }
+    },
+    "decision_threshold": {
+      "description": "Decision threshold curve on Test set highlighting optimal choice",
+      "path": "threshold_analysis.png",
+      "metrics": {
+        "optimal_threshold": 0.5
+      }
+    },
+    "feature_importance": {
+      "description": "Top feature importances from the trained model",
+      "path": "feature_importance.png",
+      "metrics": {},
+      "top_features": [
+        {
+          "feature": "EDAD",
+          "importance": 0.4208931250503156,
+          "pct": 42.13
+        },
+        {
+          "feature": "HB_PREQX",
+          "importance": 0.41332659830675034,
+          "pct": 41.38
+        },
+        {
+          "feature": "SANGRADO_MAYOR",
+          "importance": 0.04029075408289414,
+          "pct": 4.03
+        },
+        {
+          "feature": "GENERO",
+          "importance": 0.024959417431956944,
+          "pct": 2.5
+        },
+        {
+          "feature": "CANCER_ACTIVO",
+          "importance": 0.014456846402200843,
+          "pct": 1.45
+        },
+        {
+          "feature": "SINDROME_METABOLICO",
+          "importance": 0.014186573094488123,
+          "pct": 1.42
+        },
+        {
+          "feature": "ACT_FISICA_METS",
+          "importance": 0.010964217164217435,
+          "pct": 1.1
+        },
+        {
+          "feature": "HIPOTIROIDISMO",
+          "importance": 0.010585637012699997,
+          "pct": 1.06
+        },
+        {
+          "feature": "CARGA_CARDIOVASCULAR",
+          "importance": 0.009131905141633609,
+          "pct": 0.91
+        },
+        {
+          "feature": "DIABETES",
+          "importance": 0.006028181648626808,
+          "pct": 0.6
+        },
+        {
+          "feature": "HIPERTENSION",
+          "importance": 0.005827792210847217,
+          "pct": 0.58
+        },
+        {
+          "feature": "OBESIDAD",
+          "importance": 0.005410396908143479,
+          "pct": 0.54
+        },
+        {
+          "feature": "ERC",
+          "importance": 0.004484412343511076,
+          "pct": 0.45
+        },
+        {
+          "feature": "CARGA_PULMONAR",
+          "importance": 0.004454677253898742,
+          "pct": 0.45
+        },
+        {
+          "feature": "TABAQUISMO",
+          "importance": 0.0034813493345690464,
+          "pct": 0.35
+        },
+        {
+          "feature": "INMUNOSUPRESION",
+          "importance": 0.0026210738367428163,
+          "pct": 0.26
+        },
+        {
+          "feature": "ENFERMEDAD_CORONARIA",
+          "importance": 0.00258377493538388,
+          "pct": 0.26
+        },
+        {
+          "feature": "HIPERTENSION_PULMONAR",
+          "importance": 0.0019692272554431775,
+          "pct": 0.2
+        },
+        {
+          "feature": "ENF_CEREBROVASCULAR",
+          "importance": 0.001683495063581859,
+          "pct": 0.17
+        },
+        {
+          "feature": "ASMA",
+          "importance": 0.0016056913790344584,
+          "pct": 0.16
+        }
+      ]
+    },
+    "roc_boxplot_cv": {
+      "description": "Boxplot showing ROC-AUC distribution across CV folds",
+      "path": "cv_fold_plots/cv_fold_roc_auc.png",
+      "metrics": {
+        "mean": 0.5867837243462429,
+        "std": 0.015242240207486607,
+        "folds": [
+          0.5641036184210526,
+          0.5730000000000001,
+          0.5970000000000001,
+          0.6019583333333333,
+          0.5978566699768288
+        ]
+      }
+    }
+  }
+}

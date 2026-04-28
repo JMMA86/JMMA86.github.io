@@ -1,0 +1,33 @@
+{
+  "original_records": 1324,
+  "removed_records": 17,
+  "final_records": 1307,
+  "removal_percentage": 1.283987915407855,
+  "timestamp": "2026-04-16T12:57:19.875921",
+  "final_columns": [
+    "EDAD",
+    "GENERO",
+    "ACT_FISICA_METS",
+    "HB_PREQX",
+    "SHOCK",
+    "HIPERTENSION",
+    "DIABETES",
+    "ENFERMEDAD_CORONARIA",
+    "FALLA_CARDIACA",
+    "HIPOTIROIDISMO",
+    "ERC",
+    "INMUNOSUPRESION",
+    "OBESIDAD",
+    "HIPERTENSION_PULMONAR",
+    "EPOC",
+    "ASMA",
+    "ENF_CEREBROVASCULAR",
+    "CANCER_ACTIVO",
+    "TABAQUISMO",
+    "SANGRADO_MAYOR"
+  ],
+  "final_shape": [
+    1307,
+    20
+  ]
+}

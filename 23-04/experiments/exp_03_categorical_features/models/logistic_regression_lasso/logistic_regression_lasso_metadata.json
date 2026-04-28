@@ -1,0 +1,234 @@
+{
+  "model_name": "logistic_regression_lasso",
+  "pipeline_version": "exp_03_categorical_features",
+  "dataset_version": "v1",
+  "n_samples": 1176,
+  "n_features": 21,
+  "feature_names": [
+    "EDAD",
+    "HB_PREQX",
+    "GENERO",
+    "SANGRADO_MAYOR",
+    "ACT_FISICA_METS",
+    "HIPERTENSION",
+    "DIABETES",
+    "ENFERMEDAD_CORONARIA",
+    "FALLA_CARDIACA",
+    "HIPOTIROIDISMO",
+    "ERC",
+    "INMUNOSUPRESION",
+    "OBESIDAD",
+    "HIPERTENSION_PULMONAR",
+    "EPOC",
+    "ASMA",
+    "ENF_CEREBROVASCULAR",
+    "CANCER_ACTIVO",
+    "TABAQUISMO",
+    "EDAD_CAT",
+    "HB_CAT"
+  ],
+  "class_distribution": {
+    "0.0": 799,
+    "1.0": 377
+  },
+  "training_time_seconds": 0.695057,
+  "timestamp": "2026-04-21T22:42:53.662109",
+  "scale_features": true,
+  "model_params": {
+    "C": 1.0,
+    "class_weight": null,
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": null,
+    "max_iter": 100,
+    "multi_class": "deprecated",
+    "n_jobs": null,
+    "penalty": "l2",
+    "random_state": null,
+    "solver": "lbfgs",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "cv_results": {
+    "model_name": "logistic_regression_lasso",
+    "n_folds": 5,
+    "cv_time_seconds": 0.198114,
+    "metrics": {
+      "accuracy": {
+        "test_mean": 0.6930256040389471,
+        "test_std": 0.012478536794234434,
+        "train_mean": 0.6996174282678002,
+        "train_std": 0.005953240853331201,
+        "test_scores": [
+          0.6949152542372882,
+          0.6936170212765957,
+          0.7148936170212766,
+          0.6808510638297872,
+          0.6808510638297872
+        ],
+        "train_scores": [
+          0.7,
+          0.6971307120085016,
+          0.6896918172157279,
+          0.7056323060573858,
+          0.7056323060573858
+        ]
+      },
+      "precision": {
+        "test_mean": 0.5946783625730994,
+        "test_std": 0.0864517384515197,
+        "train_mean": 0.6319355252414564,
+        "train_std": 0.031163133202885024,
+        "test_scores": [
+          0.6111111111111112,
+          0.5789473684210527,
+          0.75,
+          0.5,
+          0.5333333333333333
+        ],
+        "train_scores": [
+          0.6338028169014085,
+          0.6231884057971014,
+          0.578125,
+          0.6666666666666666,
+          0.6578947368421053
+        ]
+      },
+      "recall": {
+        "test_mean": 0.13533333333333333,
+        "test_std": 0.019822418763267683,
+        "train_mean": 0.14921563881982797,
+        "train_std": 0.0162008976041488,
+        "test_scores": [
+          0.14473684210526316,
+          0.14666666666666667,
+          0.16,
+          0.12,
+          0.10526315789473684
+        ],
+        "train_scores": [
+          0.14950166112956811,
+          0.1423841059602649,
+          0.12251655629139073,
+          0.16556291390728478,
+          0.16611295681063123
+        ]
+      },
+      "f1": {
+        "test_mean": 0.2202387866080385,
+        "test_std": 0.03149016842588866,
+        "train_mean": 0.2412862369839346,
+        "train_std": 0.023528098482138115,
+        "test_scores": [
+          0.23404255319148937,
+          0.23404255319148937,
+          0.26373626373626374,
+          0.1935483870967742,
+          0.17582417582417584
+        ],
+        "train_scores": [
+          0.24193548387096775,
+          0.23180592991913745,
+          0.20218579234972678,
+          0.26525198938992045,
+          0.26525198938992045
+        ]
+      },
+      "roc_auc": {
+        "test_mean": 0.6036744000331016,
+        "test_std": 0.04337807106997167,
+        "train_mean": 0.646336125576852,
+        "train_std": 0.011031404683793461,
+        "test_scores": [
+          0.5944901315789474,
+          0.5303333333333333,
+          0.6574583333333334,
+          0.6001666666666666,
+          0.6359235352532273
+        ],
+        "train_scores": [
+          0.6489063580449104,
+          0.6611841764346195,
+          0.6268771569816248,
+          0.6479287794463617,
+          0.6467841569767442
+        ]
+      },
+      "f2": {
+        "test_mean": 0.1599991895466322,
+        "test_std": 0.023250589252760308,
+        "train_mean": 0.1760884996231972,
+        "train_std": 0.0185521589994783,
+        "test_scores": [
+          0.17080745341614906,
+          0.1724137931034483,
+          0.189873417721519,
+          0.14150943396226415,
+          0.12539184952978055
+        ],
+        "train_scores": [
+          0.17647058823529413,
+          0.16836335160532498,
+          0.14544025157232704,
+          0.19485580670303976,
+          0.1953125
+        ]
+      },
+      "kappa": {
+        "test_mean": 0.11497399722389982,
+        "test_std": 0.0343488311363391,
+        "train_mean": 0.135903843158937,
+        "train_std": 0.02079318419486976,
+        "test_scores": [
+          0.12628547922665556,
+          0.12058212058212059,
+          0.1706610481959442,
+          0.07987470634299132,
+          0.07746663177178748
+        ],
+        "train_scores": [
+          0.13637281796323697,
+          0.12766926342153628,
+          0.10131807031888818,
+          0.15769557644519272,
+          0.15646348764583085
+        ]
+      }
+    }
+  },
+  "hyperparameter_search": {},
+  "optimized_params": {},
+  "threshold_optimization": {
+    "criterion": "maximize_precision",
+    "constraint": "recall >= 0.80",
+    "threshold_candidates": [
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5
+    ],
+    "optimal_threshold": 0.25000000000000006
+  },
+  "operating_point": {
+    "threshold": 0.25000000000000006,
+    "confusion_matrix": {
+      "tp": 305,
+      "fp": 559,
+      "tn": 240,
+      "fn": 72
+    },
+    "metrics": {
+      "recall": 0.8090185676392573,
+      "precision": 0.35300925925925924,
+      "specificity": 0.30037546933667086,
+      "f1_score": 0.49153908138597907,
+      "f2_score": 0.6429173693086003,
+      "kappa": 0.081568394474974,
+      "accuracy": 0.46343537414965985
+    }
+  }
+}

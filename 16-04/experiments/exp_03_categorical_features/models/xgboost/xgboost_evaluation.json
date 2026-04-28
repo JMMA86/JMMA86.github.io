@@ -1,0 +1,40 @@
+{
+  "accuracy": 0.6412213740458015,
+  "precision": 0.4074074074074074,
+  "recall": 0.2619047619047619,
+  "specificity": 0.8202247191011236,
+  "f1_score": 0.3188405797101449,
+  "kappa": 0.09068084477920535,
+  "confusion_matrix": {
+    "tn": 73,
+    "fp": 16,
+    "fn": 31,
+    "tp": 11
+  },
+  "n_samples": 131,
+  "n_positive": 42,
+  "n_negative": 89,
+  "roc_auc": 0.5639379347244515,
+  "average_precision": 0.39669722618645176,
+  "optimal_threshold": 0.17516577243804932,
+  "optimal_sensitivity": 0.7619047619047619,
+  "optimal_specificity": 0.4044943820224719,
+  "dataset": "test",
+  "timestamp": "2026-04-16T07:35:09.231034",
+  "optimal_threshold_results": {
+    "threshold": 0.2,
+    "accuracy": 0.5038167938931297,
+    "precision": 0.35443037974683544,
+    "recall": 0.6666666666666666,
+    "specificity": 0.42696629213483145,
+    "f1_score": 0.4628099173553719,
+    "kappa": 0.07596310363537717,
+    "confusion_matrix": {
+      "tn": 38,
+      "fp": 51,
+      "fn": 14,
+      "tp": 28
+    }
+  },
+  "model_name": "xgboost"
+}

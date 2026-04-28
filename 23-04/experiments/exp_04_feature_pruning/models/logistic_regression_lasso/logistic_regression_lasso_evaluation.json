@@ -1,0 +1,40 @@
+{
+  "accuracy": 0.6946564885496184,
+  "precision": 0.625,
+  "recall": 0.11904761904761904,
+  "specificity": 0.9662921348314607,
+  "f1_score": 0.2,
+  "kappa": 0.108540319836679,
+  "confusion_matrix": {
+    "tn": 86,
+    "fp": 3,
+    "fn": 37,
+    "tp": 5
+  },
+  "n_samples": 131,
+  "n_positive": 42,
+  "n_negative": 89,
+  "roc_auc": 0.6484751203852328,
+  "average_precision": 0.48991176007843473,
+  "optimal_threshold": 0.2778063303265904,
+  "optimal_sensitivity": 0.7857142857142857,
+  "optimal_specificity": 0.4044943820224719,
+  "dataset": "test",
+  "timestamp": "2026-04-21T22:50:48.278513",
+  "optimal_threshold_results": {
+    "threshold": 0.25000000000000006,
+    "accuracy": 0.46564885496183206,
+    "precision": 0.3627450980392157,
+    "recall": 0.8809523809523809,
+    "specificity": 0.2696629213483146,
+    "f1_score": 0.5138888888888888,
+    "kappa": 0.10936285936285917,
+    "confusion_matrix": {
+      "tn": 24,
+      "fp": 65,
+      "fn": 5,
+      "tp": 37
+    }
+  },
+  "model_name": "logistic_regression_lasso"
+}

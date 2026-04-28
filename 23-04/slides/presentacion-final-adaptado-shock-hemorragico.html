@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción temprana de Shock Hemorrágico - ICESI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --icesi-blue: #5B9BD5;
+            --icesi-purple: #5856D6;
+            --icesi-green: #00D084;
+            --icesi-pink: #E8B4C8;
+            --icesi-orange: #F4A460;
+            --icesi-light: #F5F5F5;
+            --icesi-dark: #2C3E50;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .slide {
+            min-width: 100vw;
+            height: 100vh;
+            display: flex;
+            position: relative;
+            background: #fff;
+            scroll-behavior: smooth;
+        }
+
+        /* ========== PORTADA ========== */
+        .slide-portada {
+            background: linear-gradient(135deg, var(--icesi-blue) 0%, #7B9BD8 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-portada::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .slide-portada .content {
+            position: relative;
+            z-index: 2;
+            width: 60%;
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide-portada h1 {
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .slide-portada .subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px 20px;
+            border-left: 4px solid white;
+        }
+
+        .logo-header {
+            position: absolute;
+            top: 40px;
+            left: 80px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icesi-text {
+            font-size: 36px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .slide-portada .footer-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 40%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px 80px;
+            font-size: 18px;
+        }
+
+        .slide-portada .footer-info p {
+            margin-bottom: 8px;
+        }
+
+        /* ========== SECCIONES CLÁSICAS (OCULTAS) ========== */
+        .section-header {
+            display: none;
+        }
+
+        /* ========== SLIDE ESTÁNDAR ========== */
+        .slide-content {
+            flex-direction: column;
+            padding: 60px 80px;
+            overflow-y: auto;
+        }
+
+        .slide-content h2 {
+            font-size: 72px;
+            font-weight: 800;
+            color: #000;
+            margin-bottom: 30px;
+        }
+
+        .slide-content .subtitle-section {
+            font-size: 30px;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 35px;
+        }
+
+        /* ========== DOS COLUMNAS ========== */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            flex: 1;
+        }
+
+        .column h3 {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--icesi-blue);
+            margin-bottom: 20px;
+        }
+
+        .column p, .column ul {
+            font-size: 26px;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .slide-content img {
+            max-width: 95% !important;
+            max-height: 420px !important;
+        }
+
+        .column ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .column ul li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .column ul li::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            color: var(--icesi-blue);
+            font-size: 20px;
+        }
+
+        /* ========== CARDS ========== */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: var(--icesi-light);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 6px solid var(--icesi-blue);
+        }
+
+        .card h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--icesi-blue);
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 24px;
+            line-height: 1.7;
+            color: #666;
+        }
+
+        .card.highlighted {
+            border-left-color: var(--icesi-green);
+        }
+
+        .card.highlighted h3 {
+            color: var(--icesi-green);
+        }
+
+        /* ========== MÉTRICAS ========== */
+        .metrics-highlight {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .metric-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .metric-box .metric-value {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--icesi-blue);
+            margin-bottom: 10px;
+        }
+
+        .metric-box .metric-label {
+            font-size: 20px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .metric-box.improved .metric-value {
+            color: var(--icesi-green);
+        }
+
+        /* ========== TABLAS ========== */
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            font-size: 24px;
+        }
+
+        .results-table th {
+            background: var(--icesi-blue);
+            color: white;
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .results-table td {
+            padding: 15px;
+            border-bottom: 2px solid var(--icesi-light);
+        }
+
+        .results-table tr:nth-child(even) {
+            background: #FAFAFA;
+        }
+
+        .highlight-best {
+            background: rgba(0, 208, 132, 0.15) !important;
+            font-weight: 700;
+        }
+
+        /* ========== TIMELINE ========== */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--icesi-light);
+            z-index: 0;
+        }
+
+        .timeline-item {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
+
+        .timeline-dot {
+            width: 50px;
+            height: 50px;
+            background: var(--icesi-blue);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .timeline-dot.active {
+            background: var(--icesi-green);
+            width: 60px;
+            height: 60px;
+        }
+
+        .timeline-label {
+            font-size: 25px;
+            font-weight: 600;
+            color: #666;
+        }
+
+        /* ========== SLIDE CON FONDO COLOR ========== */
+        .slide-colored {
+            background: var(--icesi-blue);
+            color: white;
+            padding: 100px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .slide-colored h2 {
+            font-size: 90px;
+            font-weight: 800;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .slide-colored p {
+            font-size: 36px;
+            line-height: 1.7;
+            max-width: 1100px;
+        }
+
+        /* ========== CONCLUSIONES BOX ========== */
+        .conclusions-box {
+            background: var(--icesi-light);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 8px solid var(--icesi-green);
+            margin-top: 30px;
+        }
+
+        .conclusions-box h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--icesi-green);
+            margin-bottom: 15px;
+        }
+
+        .conclusions-box p {
+            font-size: 25px;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        /* ========== LISTA GRANDE ========== */
+        .big-list {
+            list-style: none;
+            counter-reset: big-counter;
+            margin-top: 30px;
+        }
+
+        .big-list li {
+            counter-increment: big-counter;
+            margin-bottom: 30px;
+            padding-left: 80px;
+            position: relative;
+            font-size: 25px;
+            line-height: 1.7;
+        }
+
+        .big-list li::before {
+            content: counter(big-counter);
+            position: absolute;
+            left: 0;
+            top: -5px;
+            font-size: 54px;
+            font-weight: 800;
+            color: var(--icesi-blue);
+        }
+
+        /* ========== IMPROVEMENT BOX ========== */
+        .improvement-box {
+            background: var(--icesi-green);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .improvement-box h3 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .improvement-box .big-number {
+            font-size: 72px;
+            font-weight: 800;
+        }
+
+        /* ========== NAVEGACIÓN ========== */
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-dot.active {
+            background: var(--icesi-blue);
+            width: 40px;
+            border-radius: 6px;
+        }
+
+        .instructions {
+            display: none;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            font-size: 22px;
+            font-weight: 600;
+            color: rgba(0,0,0,0.4);
+            z-index: 10;
+        }
+
+        .image-placeholder {
+            background: var(--icesi-light);
+            border: 3px dashed #ccc;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #999;
+            text-align: center;
+            padding: 40px;
+            min-height: 380px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        Usa las flechas ← → o haz clic en los puntos para navegar
+    </div>
+
+    <div class="slide-container" id="slideContainer">
+        <!-- ==================== PORTADA ==================== -->
+        <div class="slide slide-portada">
+            <div class="logo-header">
+                <span class="logo-icesi-text">icesi</span>
+            </div>
+
+            <div class="content">
+                <h1>SHOCK<br>HEMORRÁGICO</h1>
+                <div class="subtitle">
+                    Predicción temprana de shock hemorrágico en pacientes sometidos a cirugía mayor no cardiaca mediante modelos de inteligencia artificial
+                </div>
+            </div>
+
+            <div class="footer-info">
+                <p><strong>Tutor:</strong> Ángela Villota Gómez</p>
+                <p><strong>Estudiantes:</strong> Cristian Botina, Juan Marín, Óscar Gómez</p>
+                <p><strong>Fundación Valle del Lili</strong> — Universidad Icesi, 2025</p>
+            </div>
+
+            <div class="page-number">1</div>
+        </div>
+
+        <!-- ==================== EXORDIO ==================== -->
+        <!-- Slide 2: Gancho - Problema -->
+        <div class="slide slide-content">
+            <div class="section-header">EXORDIO · Gancho</div>
+            <h2>EL PROBLEMA</h2>
+            <p class="subtitle-section">¿Qué problema existe en el mundo médico?</p>
+
+            <div class="two-columns">
+                <div class="column">
+                    <h3>Shock Hemorrágico Postoperatorio</h3>
+                    <p>El shock hemorrágico es una emergencia médica en la que el paciente pierde suficiente sangre para comprometer la perfusión de órganos vitales, llevando a hipoxia tisular, falla multiorgánica y potencialmente la muerte.</p>
+                    <br>
+                    <p><strong>Mortalidad:</strong> Representa una de las principales causas de muerte prevenible en cirugía mayor, con tasas de mortalidad que alcanzan el 30-40% cuando no se detecta tempranamente.</p>
+                </div>
+                <div class="column">
+                    <h3>Detección Tardía</h3>
+                    <ul>
+                        <li><strong>Dependencia de experiencia médica:</strong> Variabilidad en interpretación clínica, sesgos cognitivos</li>
+                        <li><strong>Protocolos no actualizados:</strong> Enfoque reactivo en lugar de predictivo</li>
+                        <li><strong>Falta de personalización:</strong> No se consideran factores de riesgo individuales del paciente</li>
+                        <li><strong>Limitaciones humanas:</strong> Fatiga, dificultad para detectar cambios sutiles en signos vitales</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="conclusions-box">
+                <h3>Consecuencias</h3>
+                <p>Aumento de mortalidad postoperatoria, mayor necesidad de transfusiones sanguíneas, complicaciones como falla multiorgánica, daño renal y cerebral, incremento de costos hospitalarios y saturación de UCI.</p>
+            </div>
+            <div class="page-number">2</div>
+        </div>
+
+        <!-- Slide 3: Tesis - Propuesta -->
+        <div class="slide slide-content">
+            <div class="section-header">EXORDIO · Tesis</div>
+            <h2>¿POR QUÉ ES IMPORTANTE?</h2>
+            <p class="subtitle-section">La necesidad de un enfoque predictivo y personalizado</p>
+
+            <div class="cards-grid">
+                <div class="card highlighted">
+                    <h3>Salvar Vidas</h3>
+                    <p>La detección temprana permite intervención inmediata antes de que se desarrolle falla multiorgánica irreversible, reduciendo significativamente la mortalidad postoperatoria.</p>
+                </div>
+                <div class="card">
+                    <h3>Optimizar Recursos</h3>
+                    <p>Preparación anticipada de hemoderivados, personal médico y equipos, reduciendo transfusiones reactivas innecesarias y uso ineficiente de sangre.</p>
+                </div>
+                <div class="card">
+                    <h3>Reducir Complicaciones</h3>
+                    <p>Prevenir daño orgánico por hipoperfusión prolongada (insuficiencia renal aguda, daño cerebral, necrosis intestinal), acortando tiempos de recuperación.</p>
+                </div>
+                <div class="card">
+                    <h3>Apoyo Clínico Objetivo</h3>
+                    <p>Complementar la experiencia médica con herramientas predictivas basadas en inteligencia artificial, estandarizando criterios diagnósticos y reduciendo sesgos.</p>
+                </div>
+            </div>
+
+            <div class="improvement-box" style="margin-top: 40px;">
+                <h3>Nuestra Propuesta</h3>
+                <p style="font-size: 26px; margin-top: 15px;">
+                    Desarrollar un modelo de inteligencia artificial que permita la <strong>predicción temprana</strong> del riesgo de shock hemorrágico, integrando datos preoperatorios e intraoperatorios.
+                </p>
+            </div>
+            <div class="page-number">3</div>
+        </div>
+
+        <!-- Slide 4: Objetivos -->
+        <div class="slide slide-content">
+            <div class="section-header">EXORDIO · Objetivos</div>
+            <h2>OBJETIVOS DEL PROYECTO</h2>
+            <p class="subtitle-section">Predicción temprana de shock hemorrágico con IA</p>
+
+            <div class="two-columns">
+                <div class="column">
+                    <h3>Objetivo General</h3>
+                    <p>Desarrollar y validar un modelo de inteligencia artificial que permita la predicción temprana del riesgo de shock hemorrágico en pacientes sometidos a cirugía mayor no cardiaca, integrando datos clínicos preoperatorios e intraoperatorios.</p>
+                </div>
+                <div class="column">
+                    <h3>Objetivos Específicos</h3>
+                    <ul>
+                        <li>Construir conjunto de datos estructurado y limpio desde registros FVL</li>
+                        <li>Identificar variables clínicas más relevantes mediante análisis exploratorio</li>
+                        <li>Entrenar y validar modelos de ML supervisados con múltiples algoritmos</li>
+                        <li>Evaluar desempeño con métricas clínicas: Sensibilidad, Especificidad, AUC-ROC</li>
+                        <li>Proponer estrategia de integración clínica en el flujo quirúrgico</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="conclusions-box">
+                <h3>Marco Metodológico</h3>
+                <p>Proyecto desarrollado siguiendo estándares <strong>CRISP-DM</strong> (minería de datos) y <strong>TRIPOD</strong> (modelos predictivos en medicina) para garantizar rigor científico y aplicabilidad clínica.</p>
+            </div>
+            <div class="page-number">4</div>
+        </div>
+
+        <!-- ==================== NARRATIO ==================== -->
+        <!-- Slide 5: Separador NARRATIO -->
+        <div class="slide slide-colored">
+            <div class="section-header" style="color: white; opacity: 0.8;">NARRATIO</div>
+            <h2>DESARROLLO</h2>
+            <p>¿Cómo se está abordando el problema?<br>Metodología experimental en 4 fases iterativas</p>
+            <div class="page-number" style="color: white;">5</div>
+        </div>
+
+        <!-- Slide 6: Contexto del Dataset -->
+        <div class="slide slide-content">
+            <div class="section-header">NARRATIO · Contexto</div>
+            <h2>DATASET DEL PROYECTO</h2>
+            <p class="subtitle-section">Datos de pacientes de la Fundación Valle del Lili</p>
+
+            <div class="metrics-highlight">
+                <div class="metric-box">
+                    <div class="metric-value">1324</div>
+                    <div class="metric-label">Registros Totales</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value">22</div>
+                    <div class="metric-label">Variables Clínicas</div>
+                </div>
+                <div class="metric-box improved">
+                    <div class="metric-value">0</div>
+                    <div class="metric-label">Valores Nulos</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value">32%</div>
+                    <div class="metric-label">Casos Shock</div>
+                </div>
+            </div>
+
+            <div class="two-columns">
+                <div class="column">
+                    <h3>Composición del Dataset</h3>
+                    <ul>
+                        <li><strong>3 variables numéricas:</strong> Edad, Hemoglobina prequirúrgica, Actividad física (METs)</li>
+                        <li><strong>19 variables categóricas:</strong> Comorbilidades (hipertensión, diabetes, cáncer activo, etc.)</li>
+                        <li><strong>División:</strong> 80% entrenamiento (1059), 20% prueba (265)</li>
+                        <li><strong>Validación cruzada:</strong> Estratificada 5-folds para estabilidad</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Variables Clave</h3>
+                    <ul>
+                        <li><strong>EDAD:</strong> Modificador de respuesta homeostática (42.9% importancia SHAP)</li>
+                        <li><strong>HB_PREQX:</strong> Hemoglobina prequirúrgica, reserva ante pérdidas (32.8% importancia)</li>
+                        <li><strong>SANGRADO_MAYOR:</strong> Variable intraoperatoria crítica con 19.16% de importancia en modelo final</li>
+                        <li><strong>Comorbilidades:</strong> Hipertensión, cáncer activo, diabetes, obesidad</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page-number">6</div>
+        </div>
+
+        <!-- Slide 7: Metodología CRISP-DM + TRIPOD -->
+        <div class="slide slide-content">
+            <div class="section-header">NARRATIO · Metodología</div>
+            <h2>ENFOQUE METODOLÓGICO</h2>
+            <p class="subtitle-section">CRISP-DM + TRIPOD para desarrollo riguroso</p>
+
+            <div class="two-columns">
+                <div class="column">
+                    <h3>CRISP-DM</h3>
+                    <p><strong>Cross-Industry Standard Process for Data Mining</strong> — Marco iterativo de 6 fases:</p>
+                    <ul style="margin-top: 15px;">
+                        <li>Business Understanding: Definición del problema clínico</li>
+                        <li>Data Understanding: Exploración del dataset</li>
+                        <li>Data Preparation: Limpieza y transformación</li>
+                        <li>Modeling: Entrenamiento de algoritmos ML</li>
+                        <li>Evaluation: Validación con métricas clínicas</li>
+                        <li>Deployment: Preparación para integración</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>TRIPOD</h3>
+                    <p><strong>Transparent Reporting of a multivariable prediction model for Individual Prognosis Or Diagnosis</strong> — Guía para modelos predictivos en medicina:</p>
+                    <ul style="margin-top: 15px;">
+                        <li>Transparencia en definición de variables</li>
+                        <li>Manejo riguroso de datos faltantes</li>
+                        <li>Validación interna con CV estratificada</li>
+                        <li>Reporte completo de métricas diagnósticas</li>
+                        <li>Análisis de calibración del modelo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="conclusions-box">
+                <h3>Enfoque Iterativo de 4 Fases</h3>
+                <p><strong>Fase 1:</strong> Evaluación baseline con 7 algoritmos por defecto · <strong>Fase 2:</strong> Feature engineering con conocimiento médico · <strong>Fase 3:</strong> Selección del modelo champion · <strong>Fase 4:</strong> Optimización de hiperparámetros y umbral de decisión</p>
+            </div>
+            <div class="page-number">7</div>
+        </div>
+
+        <!-- Slide 8: SHAP - Interpretabilidad -->
+        <div class="slide slide-content" style="background: var(--icesi-pink);">
+            <div class="section-header">NARRATIO · Tecnología</div>
+            <h2>INTERPRETABILIDAD: SHAP</h2>
+            <p class="subtitle-section">SHapley Additive exPlanations — Transparencia del modelo</p>
+
+            <div class="two-columns" style="gap: 60px;">
+                <div class="column">
+                    <h3>¿Qué es SHAP?</h3>
+                    <p>Técnica basada en <strong>teoría de juegos</strong> que calcula la contribución individual de cada variable a la predicción del modelo.</p>
+                    <br>
+                    <p>Usa <strong>valores de Shapley</strong> para repartir la "responsabilidad" de la predicción entre todas las variables, comparando qué tanto cambia el resultado si una característica se incluye o excluye.</p>
+                </div>
+                <div class="column">
+                    <h3>¿Por qué es importante?</h3>
+                    <ul>
+                        <li><strong>Validación Clínica:</strong> Permite a los médicos ver exactamente qué factores aumentan o disminuyen el riesgo de shock</li>
+                        <li><strong>Transparencia:</strong> Transforma modelos de "caja negra" en sistemas interpretables y auditables</li>
+                        <li><strong>Confianza:</strong> Las decisiones del algoritmo tienen sentido médico verificable</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="conclusions-box" style="margin-top: 50px; background: white;">
+                <h3>Implementación</h3>
+                <p><strong>Importancia Global:</strong> Qué variables pesan más en promedio (EDAD: 42.9%, HB_PREQX: 32.8%)<br>
+                <strong>Explicaciones Locales:</strong> Por qué un paciente específico fue clasificado en riesgo</p>
+            </div>
+            <div class="page-number">8</div>
+        </div>
+
+        <!-- Slide 9: Fase 1 Header -->
+        <div class="slide slide-colored">
+            <div class="section-header" style="color: white; opacity: 0.8;">NARRATIO · Fase 1</div>
+            <h2>BASELINE</h2>
+            <p>Evaluación de 7 algoritmos con configuración por defecto<br>Objetivo: Establecer línea base de rendimiento</p>
+            <div class="page-number" style="color: white;">9</div>
+        </div>
+
+        <!-- Slide 10: Fase 1 Resultados -->
+        <div class="slide slide-content">
+            <div class="section-header">NARRATIO · Fase 1</div>
+            <h2>RESULTADOS BASELINE</h2>
+            <p class="subtitle-section">7 algoritmos: XGBoost, CatBoost, Random Forest, LightGBM, Decision Tree, Naive Bayes, Logistic Regression</p>
+
+            <img src="../experiments/exp_01_base_models/comparison_plots/roc_comparison.png" alt="ROC comparison baseline" style="max-width: 95%; max-height: 420px; margin: 15px auto; display: block; border-radius: 8px;">
+
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Modelo</th>
+                        <th>AUC-ROC</th>
+                        <th>Sensibilidad</th>
+                        <th>Especificidad</th>
+                        <th>Cohen's Kappa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-best">
+                        <td><strong>XGBoost</strong></td>
+                        <td>0.564</td>
+                        <td>0.26</td>
+                        <td>0.84</td>
+                        <td>0.22</td>
+                    </tr>
+                    <tr>
+                        <td>CatBoost</td>
+                        <td>0.615</td>
+                        <td>0.23</td>
+                        <td>0.89</td>
+                        <td>0.18</td>
+                    </tr>
+                    <tr>
+                        <td>Naive Bayes</td>
+                        <td>0.571</td>
+                        <td>0.95</td>
+                        <td>0.02</td>
+                        <td>0.09</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="conclusions-box">
+                <h3>Conclusión Fase 1</h3>
+                <p>AUC inicial de <strong>0.615</strong> con modelos base. CatBoost mostró el mejor rendimiento inicial con Recall de 80.9%, cumpliendo el objetivo clínico de detectar >80% de casos.</p>
+            </div>
+            <div class="page-number">10</div>
+        </div>
+
+        <!-- Slide 11: Fase 2 Header -->
+        <div class="slide slide-colored" style="background: var(--icesi-green);">
+            <div class="section-header" style="color: white; opacity: 0.8;">NARRATIO · Fase 2</div>
+            <h2>FEATURE ENGINEERING</h2>
+            <p>Enriquecimiento con conocimiento médico<br>Variables derivadas y agregaciones fisiológicas</p>
+            <div class="page-number" style="color: white;">11</div>
+        </div>
+
+        <!-- Slide 12: Feature Importance -->
+        <div class="slide slide-content">
+            <div class="section-header">NARRATIO · Fase 2</div>
+            <h2>FEATURE IMPORTANCE</h2>
+            <p class="subtitle-section">Variables más influyentes identificadas por XGBoost</p>
+
+            <img src="../experiments/exp_02_aggregated_features/comparison_plots/roc_comparison.png" alt="ROC comparison aggregated" style="max-width: 95%; max-height: 420px; margin: 15px auto; display: block; border-radius: 8px;">
+
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Importancia</th>
+                        <th>Interpretación Clínica</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-best">
+                        <td><strong>SANGRADO_MAYOR</strong></td>
+                        <td>26.7%</td>
+                        <td>Variable más discriminativa: parámetro directo de hemorragia</td>
+                    </tr>
+                    <tr>
+                        <td>HIPERTENSION</td>
+                        <td>7.1%</td>
+                        <td>Comorbilidad vascular predisponente, modula tolerancia cardiovascular</td>
+                    </tr>
+                    <tr>
+                        <td>ACT_FISICA_METS</td>
+                        <td>6.1%</td>
+                        <td>Capacidad funcional preoperatoria, reserva fisiológica</td>
+                    </tr>
+                    <tr>
+                        <td>CANCER_ACTIVO</td>
+                        <td>5.7%</td>
+                        <td>Diátesis procoagulante y fragilidad vascular</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="conclusions-box">
+                <h3>Impacto: +3.4% AUC-ROC</h3>
+                <p>De 0.564 a <strong>0.583</strong>. Mejora modesta: características lineales tienen límites. Interacciones no-lineales requieren algoritmos ensemble.</p>
+            </div>
+            <div class="page-number">12</div>
+        </div>
+
+        <!-- Slide 13: Fase 3 Header -->
+        <div class="slide slide-colored" style="background: var(--icesi-purple);">
+            <div class="section-header" style="color: white; opacity: 0.8;">NARRATIO · Fase 3</div>
+            <h2>CHAMPION MODEL</h2>
+            <p>Selección del modelo final<br>Estabilidad · Métricas discriminativas · Calibración</p>
+            <div class="page-number" style="color: white;">13</div>
+        </div>
+
+        <!-- Slide 14: Comparación Post-Pruning -->
+        <div class="slide slide-content">
+            <div class="section-header">NARRATIO · Fase 3</div>
+            <h2>COMPARACIÓN POST-PRUNING</h2>
+            <p class="subtitle-section">Reducción de 95 → 21 variables seleccionadas</p>
+
+            <img src="../experiments/exp_04_feature_pruning/comparison_plots/roc_comparison.png" alt="ROC comparison pruning" style="max-width: 95%; max-height: 420px; margin: 15px auto; display: block; border-radius: 8px;">
+
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Modelo</th>
+                        <th>Cohen's Kappa</th>
+                        <th>Sensibilidad</th>
+                        <th>Especificidad</th>
+                        <th>Veredicto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-best">
+                        <td><strong>XGBoost</strong></td>
+                        <td>0.463</td>
+                        <td>0.463</td>
+                        <td>0.680</td>
+                        <td><strong>✓ CHAMPION</strong></td>
+                    </tr>
+                    <tr>
+                        <td>CatBoost</td>
+                        <td>0.432</td>
+                        <td>0.425</td>
+                        <td>0.682</td>
+                        <td>Kappa inferior</td>
+                    </tr>
+                    <tr>
+                        <td>Random Forest</td>
+                        <td>0.330</td>
+                        <td>0.425</td>
+                        <td>0.519</td>
+                        <td>Especificidad baja</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="conclusions-box">
+                <h3>Justificación XGBoost</h3>
+                <p>Regularización L1/L2 reduce overfitting · Balance Sensibilidad-Especificidad óptimo · Kappa = 0.463 (acuerdo moderado sustancial)</p>
+            </div>
+            <div class="page-number">14</div>
+        </div>
+
+        <!-- Slide 15: Fase 4 Header -->
+        <div class="slide slide-colored" style="background: var(--icesi-orange);">
+            <div class="section-header" style="color: white; opacity: 0.8;">NARRATIO · Fase 4</div>
+            <h2>OPTIMIZACIÓN</h2>
+            <p>Ajuste de hiperparámetros y umbral de decisión<br>Objetivo: Minimizar falsos negativos</p>
+            <div class="page-number" style="color: white;">15</div>
+        </div>
+
+        <!-- Slide 16: Threshold Analysis -->
+        <div class="slide slide-content">
+            <div class="section-header">NARRATIO · Fase 4</div>
+            <h2>ANÁLISIS DE UMBRAL</h2>
+            <p class="subtitle-section">Trade-off Sensibilidad vs Especificidad</p>
+
+            <img src="../experiments/exp_05_hyperparameter_search/models/xgboost/plots/threshold_analysis.png" alt="Threshold analysis" style="max-width: 95%; max-height: 420px; margin: 15px auto; display: block; border-radius: 8px;">
+
+            <div class="two-columns" style="margin-top: 30px;">
+                <div class="column">
+                    <h3>Puntos Críticos</h3>
+                    <ul>
+                        <li><strong>Threshold = 0.0:</strong> Sensibilidad = 1.0, Especificidad ≈ 0 (todos positivos, sobrecarga clínica)</li>
+                        <li><strong>Threshold = 0.3-0.4:</strong> Máximo F1-Score (~0.52), balance óptimo</li>
+                        <li><strong>Threshold = 0.5:</strong> Punto equilibrio teórico estándar</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Recomendación Valle del Lili</h3>
+                    <p><strong>Threshold ≈ 0.30-0.35</strong></p>
+                    <ul>
+                        <li>Recall ≥ 80% (detectar 326 de 377 casos de shock)</li>
+                        <li>~51 alertas por 131 pacientes (40% tasa activación)</li>
+                        <li>Equipo valida clínicamente con lactato, déficit base</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page-number">16</div>
+        </div>
+
+        <!-- Slide 17: Calibración -->
+        <div class="slide slide-content">
+            <div class="section-header">NARRATIO · Fase 4</div>
+            <h2>CALIBRACIÓN DEL MODELO</h2>
+            <p class="subtitle-section">Confiabilidad de probabilidades predichas</p>
+
+            <img src="../experiments/exp_05_hyperparameter_search/models/xgboost/plots/calibration_curve_cv.png" alt="Calibration curve" style="max-width: 95%; max-height: 420px; margin: 15px auto; display: block; border-radius: 8px;">
+
+            <div class="conclusions-box">
+                <h3>Conclusión de Calibración</h3>
+                <p>El modelo es <strong>moderadamente bien calibrado</strong> en rango 0.2-0.6, con tendencia a subestimar riesgo en extremos altos.<br><br>
+                • Predicciones en rango <strong>0.30-0.50</strong> son <strong>fiables clínicamente</strong><br>
+                • Predicciones <strong>> 0.80</strong> requieren <strong>confirmación adicional</strong> (lactato, presión arterial)</p>
+            </div>
+            <div class="page-number">17</div>
+        </div>
+
+        <!-- Slide 18: Resultados Post-Tuning -->
+        <div class="slide slide-content">
+            <div class="section-header">NARRATIO · Fase 4</div>
+            <h2>RESULTADOS POST-TUNING</h2>
+            <p class="subtitle-section">Mejora Fase 3 → Fase 4</p>
+
+            <img src="../experiments/exp_05_hyperparameter_search/models/xgboost/plots/feature_importance.png" alt="Feature importance champion" style="max-width: 95%; max-height: 420px; margin: 15px auto; display: block; border-radius: 8px;">
+
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Métrica</th>
+                        <th>Baseline</th>
+                        <th>Campeón</th>
+                        <th>Δ Mejora</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-best">
+                        <td><strong>AUC-ROC</strong></td>
+                        <td>0.615</td>
+                        <td><strong>0.639</strong></td>
+                        <td>+0.024 (+3.9%)</td>
+                    </tr>
+                    <tr class="highlight-best">
+                        <td><strong>Recall</strong></td>
+                        <td>0.809</td>
+                        <td><strong>0.865</strong></td>
+                        <td>+0.056 (+6.9%)</td>
+                    </tr>
+                    <tr>
+                        <td>Especificidad</td>
+                        <td>0.299</td>
+                        <td>0.285</td>
+                        <td>-0.014 (-4.7%)</td>
+                    </tr>
+                    <tr class="highlight-best">
+                        <td><strong>F2-Score</strong></td>
+                        <td>0.643</td>
+                        <td><strong>0.678</strong></td>
+                        <td>+0.035 (+5.4%)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="page-number">18</div>
+        </div>
+
+        <!-- ==================== DEMOSTRATIO ==================== -->
+        <!-- Slide 19: Separador DEMOSTRATIO -->
+        <div class="slide slide-colored" style="background: var(--icesi-green);">
+            <div class="section-header" style="color: white; opacity: 0.8;">DEMOSTRATIO</div>
+            <h2>AVANCES LOGRADOS</h2>
+            <p>¿En qué etapa está el proyecto?<br>Resultados concretos y estado actual</p>
+            <div class="page-number" style="color: white;">19</div>
+        </div>
+
+        <!-- Slide 20: Mejora Fenomenal -->
+        <div class="slide slide-content">
+            <div class="section-header">DEMOSTRATIO · Resultados</div>
+            <h2>MEJORA FENOMENAL EN DETECCIÓN</h2>
+
+            <div class="improvement-box">
+                <h3>Modelo Campeón: XGBoost (Experimento 5)</h3>
+                <div class="big-number">86.5%</div>
+                <p style="font-size: 26px; margin-top: 20px;">
+                    Recall (Sensibilidad)<br>
+                    Detecta <strong>326 de 377 casos de shock</strong>
+                </p>
+            </div>
+
+            <div class="two-columns" style="margin-top: 50px;">
+                <div class="column">
+                    <h3>Métricas Clave</h3>
+                    <ul>
+                        <li><strong>Recall: 86.47%</strong> (detecta 326/377 casos)</li>
+                        <li><strong>NPV: 81.72%</strong> (confianza cuando predice no-shock)</li>
+                        <li><strong>F2-Score: 0.678</strong> (prioriza detección)</li>
+                        <li><strong>AUC-ROC: 0.639</strong> (discriminación moderada)</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Trade-offs Clínicos</h3>
+                    <p>Especificidad: 28.54% (71.46% falsos positivos)</p>
+                    <br>
+                    <p><strong>Justificación clínica:</strong> En shock hemorrágico, priorizar Recall sobre Especificidad es crítico. Mejor tener alertas adicionales que perder un caso potencialmente fatal.</p>
+                    <br>
+                    <p><strong>Umbral óptimo: 0.48</strong></p>
+                </div>
+            </div>
+            <div class="page-number">20</div>
+        </div>
+
+        <!-- Slide 21: Trayectoria de Mejora -->
+        <div class="slide slide-content">
+            <div class="section-header">DEMOSTRATIO · Etapas</div>
+            <h2>TRAYECTORIA DE MEJORA</h2>
+            <p class="subtitle-section">Evolución del rendimiento a través de las 4 fases</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot">1</div>
+                    <div class="timeline-label">Baseline<br>AUC: 0.615</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">2</div>
+                    <div class="timeline-label">Features<br>AUC: 0.624</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">3</div>
+                    <div class="timeline-label">Pruning<br>AUC: 0.621</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot active">4</div>
+                    <div class="timeline-label">Optimized<br>AUC: 0.639</div>
+                </div>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Fase 1: Baseline</h3>
+                    <p>7 algoritmos con configuración por defecto. Mejor resultado: CatBoost AUC 0.615, Recall 80.9%. Cumple objetivo clínico de detectar >80% de casos.</p>
+                </div>
+                <div class="card">
+                    <h3>Fase 2: Feature Engineering</h3>
+                    <p>Agregaciones clínicas: HB_PREQX (26.8%), EDAD² (21.3%), HB_x_SANGRADO (5.9%). Mejora: AUC 0.624 (+1.5%), Recall 80.1%.</p>
+                </div>
+                <div class="card">
+                    <h3>Fase 3: Champion Model</h3>
+                    <p>Selección de características basada en importancia. CatBoost mantiene mejor rendimiento: AUC 0.621, preservando Recall alto.</p>
+                </div>
+                <div class="card highlighted">
+                    <h3>Fase 4: Optimización ✓</h3>
+                    <p>Hyperparameter tuning + threshold 0.48. XGBoost campeón: AUC 0.639, Recall 86.5%, F2-Score 0.678. Supera objetivo clínico.</p>
+                </div>
+            </div>
+            <div class="page-number">21</div>
+        </div>
+
+        <!-- Slide 22: Recomendaciones Implementación -->
+        <div class="slide slide-content">
+            <div class="section-header">DEMOSTRATIO · Implementación</div>
+            <h2>RECOMENDACIONES PARA FVL</h2>
+
+            <ol class="big-list">
+                <li><strong>Algoritmo Seleccionado:</strong> XGBoost como modelo principal, CatBoost como alternativa validada de respaldo.</li>
+
+                <li><strong>Threshold Operativo:</strong> 0.30-0.35 para maximizar sensibilidad con especificidad clínicamente aceptable.</li>
+
+                <li><strong>Protocolo de Uso Escalonado:</strong>
+                    <ul style="margin-top: 15px; font-size: 18px;">
+                        <li><strong>Probabilidad ≥ 0.40:</strong> Activar protocolo shock hemorrágico completo (anestesiólogo, preparar transfusión)</li>
+                        <li><strong>Probabilidad 0.30-0.40:</strong> Intensificar monitoreo, confirmación con marcadores laborales (lactato, déficit base)</li>
+                        <li><strong>Probabilidad < 0.30:</strong> Vigilancia estándar postoperatoria</li>
+                    </ul>
+                </li>
+
+                <li><strong>Validación Prospectiva:</strong> Estudio piloto con 50-100 casos quirúrgicos reales antes de implementación clínica completa.</li>
+
+                <li><strong>Reentrenamiento Periódico:</strong> Cada 500-1000 casos nuevos para recalibración y detección de concept drift.</li>
+            </ol>
+            <div class="page-number">22</div>
+        </div>
+
+        <!-- ==================== EPÍLOGO ==================== -->
+        <!-- Slide 23: Separador EPÍLOGO -->
+        <div class="slide slide-colored" style="background: var(--icesi-purple);">
+            <div class="section-header" style="color: white; opacity: 0.8;">EPÍLOGO</div>
+            <h2>CIERRE</h2>
+            <p>Síntesis del mensaje e impacto proyectado</p>
+            <div class="page-number" style="color: white;">23</div>
+        </div>
+
+        <!-- Slide 23: Conclusiones -->
+        <div class="slide slide-content">
+            <div class="section-header">EPÍLOGO · Conclusiones</div>
+            <h2>CONCLUSIONES</h2>
+
+            <div class="two-columns">
+                <div class="column">
+                    <h3>Limitaciones Identificadas</h3>
+                    <ul>
+                        <li><strong>Dataset insuficiente:</strong> Las variables estáticas preoperatorias disponibles (comorbilidades, edad, hemoglobina) no son suficientes para predicción robusta del shock hemorrágico con estándares clínicos requeridos.</li>
+                        <li><strong>AUC-ROC 0.639:</strong> Moderado. Aunque inferior al ideal (>0.80), el Recall de 86.5% cumple el objetivo clínico prioritario.</li>
+                        <li><strong>Variables temporales faltantes:</strong> Se necesitan datos continuos pre, intra y postquirúrgicos (signos vitales en tiempo real, tendencias de PA, FC, SpO2).</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Logro Real del Proyecto</h3>
+                    <ul>
+                        <li><strong>Arquitectura robusta y parametrizable:</strong> Framework de experimentación validado con múltiples algoritmos (7 modelos), 4 fases iterativas, metodologías estandarizadas (CRISP-DM, TRIPOD).</li>
+                        <li><strong>Pipeline escalable:</strong> Sistema modular que permite fácil integración de nuevas variables y algoritmos sin rediseño completo.</li>
+                        <li><strong>Base sólida:</strong> Infraestructura lista para futuras iteraciones cuando se obtengan datos temporales y multivariados.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="conclusions-box" style="background: var(--icesi-light); border-left-color: var(--icesi-purple);">
+                <h3 style="color: var(--icesi-purple);">Conclusión Principal</h3>
+                <p>El dataset actual <strong>no permite</strong> predicción clínicamente robusta del shock hemorrágico. Sin embargo, hemos desarrollado una <strong>arquitectura de experimentación robusta, parametrizable y escalable</strong> que constituye la base fundamental para futuros desarrollos con datos más completos.</p>
+            </div>
+            <div class="page-number">24</div>
+        </div>
+
+        <!-- Slide 24: Proyección e Impacto -->
+        <div class="slide slide-content">
+            <div class="section-header">EPÍLOGO · Trabajo Futuro</div>
+            <h2>TRABAJO FUTURO Y VALOR GENERADO</h2>
+            <p class="subtitle-section">Próximos pasos y el verdadero logro de este proyecto</p>
+
+            <div class="two-columns">
+                <div class="column">
+                    <h3>Requisitos para Predicción Robusta</h3>
+                    <ul>
+                        <li><strong>Variables temporales continuas:</strong> Integrar series temporales de signos vitales (FC, PA, SpO2, temperatura) en tiempo real durante cirugía</li>
+                        <li><strong>Datos tri-fase:</strong> Prequirúrgicos + Intraoperatorios + Postoperatorios en ventana temporal completa</li>
+                        <li><strong>Modelos de series temporales:</strong> LSTM, Transformers o arquitecturas híbridas para capturar evolución dinámica</li>
+                        <li><strong>Dataset ampliado:</strong> > 5000 casos con mayor diversidad quirúrgica</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Valor de la Arquitectura Desarrollada</h3>
+                    <ul>
+                        <li><strong>Framework robusto y parametrizable:</strong> Pipeline modular con 7 algoritmos, 4 fases de experimentación, métricas estandarizadas</li>
+                        <li><strong>Escalabilidad garantizada:</strong> Fácil integración de nuevas variables y modelos sin rediseño estructural</li>
+                        <li><strong>Metodologías validadas:</strong> CRISP-DM + TRIPOD aseguran rigor científico</li>
+                        <li><strong>Base fundamental:</strong> Infraestructura lista para implementación cuando se obtengan datos adecuados</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="conclusions-box" style="background: var(--icesi-green); color: white; border-left-color: white;">
+                <h3 style="color: white;">Valor Real del Proyecto</h3>
+                <p style="color: white;">No logramos un sistema de predicción clínico operacional (el dataset no lo permite), pero <strong>construimos la arquitectura robusta y metodología rigurosa</strong> que permitirá lograrlo cuando se cuente con datos temporales continuos. Este es un <strong>proyecto de infraestructura</strong> que sienta las bases para futuros desarrollos exitosos.</p>
+            </div>
+            <div class="page-number">25</div>
+        </div>
+
+        <!-- Slide 26: Cierre Final -->
+        <div class="slide slide-portada">
+            <div class="content" style="width: 100%; text-align: center; align-items: center; justify-content: center;">
+                <h1 style="font-size: 96px; margin-bottom: 40px;">GRACIAS</h1>
+                <p style="font-size: 48px; font-weight: 300; opacity: 0.9;">Llega más lejos</p>
+                <div style="margin-top: 80px; font-size: 28px;">
+                    <strong>Universidad Icesi</strong><br>
+                    Fundación Valle del Lili<br>
+                    2025
+                </div>
+            </div>
+            <div class="page-number">7</div>
+        </div>
+    </div>
+
+    <div class="navigation" id="navigation"></div>
+
+    <script>
+        const container = document.getElementById('slideContainer');
+        const navigation = document.getElementById('navigation');
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'nav-dot';
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            navigation.appendChild(dot);
+        });
+
+        function goToSlide(index) {
+            if (index < 0 || index >= slides.length) return;
+
+            currentSlide = index;
+            container.scrollTo({
+                left: index * window.innerWidth,
+                behavior: 'smooth'
+            });
+
+            document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            const currentSlideElement = slides[currentSlide];
+            const hasScroll = currentSlideElement.scrollHeight > currentSlideElement.clientHeight;
+            const isAtTop = currentSlideElement.scrollTop === 0;
+            const isAtBottom = currentSlideElement.scrollTop + currentSlideElement.clientHeight >= currentSlideElement.scrollHeight - 5;
+
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                if (hasScroll && !isAtBottom) {
+                    currentSlideElement.scrollBy({
+                        top: currentSlideElement.clientHeight,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    goToSlide(currentSlide + 1);
+                }
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                if (hasScroll && !isAtTop) {
+                    currentSlideElement.scrollBy({
+                        top: -currentSlideElement.clientHeight,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    goToSlide(currentSlide - 1);
+                }
+            }
+        });
+
+        let scrollTimeout;
+        container.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const index = Math.round(container.scrollLeft / window.innerWidth);
+                if (index !== currentSlide) {
+                    currentSlide = index;
+                    document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                }
+            }, 100);
+        });
+
+        document.addEventListener('wheel', (e) => {
+            e.preventDefault();
+        }, { passive: false });
+    </script>
+</body>
+</html>

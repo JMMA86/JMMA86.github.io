@@ -1,0 +1,142 @@
+{
+  "experiment": "exp_05_hyperparameter_search",
+  "plots": {
+    "roc_comparison": {
+      "description": "ROC Curves comparing all evaluated models",
+      "path": "roc_comparison.png",
+      "models": {
+        "catboost": {
+          "roc_auc": 0.620241381165177
+        },
+        "decision_tree": {
+          "roc_auc": 0.6227379510095995
+        },
+        "lightgbm": {
+          "roc_auc": 0.6338194430652102
+        },
+        "logistic_regression_lasso": {
+          "roc_auc": 0.6132879303210859
+        },
+        "naive_bayes": {
+          "roc_auc": 0.5839796094008607
+        },
+        "random_forest": {
+          "roc_auc": 0.6356040218470705
+        },
+        "xgboost": {
+          "roc_auc": 0.6390922004303211
+        }
+      }
+    },
+    "calibration_comparison": {
+      "description": "Calibration curves comparing models with Brier score",
+      "path": "calibration_comparison.png",
+      "models": {
+        "catboost": {
+          "brier_score": 0.21506327689727003
+        },
+        "decision_tree": {
+          "brier_score": 0.21421198089798668
+        },
+        "lightgbm": {
+          "brier_score": 0.21434953030812948
+        },
+        "logistic_regression_lasso": {
+          "brier_score": 0.21286694507674703
+        },
+        "naive_bayes": {
+          "brier_score": 0.2627274486907023
+        },
+        "random_forest": {
+          "brier_score": 0.2313797566825429
+        },
+        "xgboost": {
+          "brier_score": 0.26719448961659364
+        }
+      }
+    },
+    "roc_boxplot": {
+      "description": "Boxplot comparing CV ROC AUC distribution across models",
+      "path": "roc_boxplot_comparison.png",
+      "models": {
+        "catboost": {
+          "mean": 0.620241381165177,
+          "std": 0.0537902067316193,
+          "folds": [
+            0.5897203947368421,
+            0.5389166666666666,
+            0.6975416666666667,
+            0.6242916666666666,
+            0.6507365110890433
+          ]
+        },
+        "decision_tree": {
+          "mean": 0.6227379510095995,
+          "std": 0.043587765647535165,
+          "folds": [
+            0.5835526315789473,
+            0.6580416666666666,
+            0.6908333333333334,
+            0.5937083333333335,
+            0.5875537901357166
+          ]
+        },
+        "lightgbm": {
+          "mean": 0.6338194430652102,
+          "std": 0.026545072466807745,
+          "folds": [
+            0.6069901315789474,
+            0.6136666666666667,
+            0.6476666666666666,
+            0.6791666666666667,
+            0.6216070837471036
+          ]
+        },
+        "logistic_regression_lasso": {
+          "mean": 0.6132879303210859,
+          "std": 0.05991967411440174,
+          "folds": [
+            0.583470394736842,
+            0.5226666666666666,
+            0.7044583333333333,
+            0.6205,
+            0.6353442568685866
+          ]
+        },
+        "naive_bayes": {
+          "mean": 0.5839796094008607,
+          "std": 0.04247908227926773,
+          "folds": [
+            0.5583881578947367,
+            0.5251666666666667,
+            0.644625,
+            0.5740833333333334,
+            0.6176348891095664
+          ]
+        },
+        "random_forest": {
+          "mean": 0.6356040218470705,
+          "std": 0.035320559758756205,
+          "folds": [
+            0.6044407894736843,
+            0.6024166666666667,
+            0.69425,
+            0.6572916666666667,
+            0.619620986428335
+          ]
+        },
+        "xgboost": {
+          "mean": 0.6390922004303211,
+          "std": 0.03709360155609202,
+          "folds": [
+            0.6005756578947365,
+            0.6075833333333334,
+            0.7048750000000001,
+            0.6469999999999999,
+            0.6354270109235353
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+\section{Marco Teórico}
+
+En el contexto clínico, una presión arterial media (PAM) por debajo de 60 mmHg puede comprometer la perfusión tisular, es decir, el suministro de oxígeno a los órganos vitales. La PAM depende del gasto cardíaco (CO) y la resistencia periférica total (RPT), siendo el CO a su vez influenciado por el volumen sanguíneo y la frecuencia cardíaca. Cuando este equilibrio se rompe y se produce hipoperfusión, se desencadena un estado de shock. Según la American College of Surgeons (ACS), el shock se clasifica en cuatro tipos principales: cardiogénico, distributivo, obstructivo e hipovolémico \cite{hooper2022}. En particular, el shock hemorrágico es un tipo de shock hipovolémico que se produce por la pérdida de sangre \cite{cannon2018}, lo que puede llevar a la necrosis de las células tisulares, falla multiorgánica y muerte si no se trata a tiempo.
+
+La clasificación del shock hemorrágico permite evaluar la gravedad de la pérdida sanguínea según los signos clínicos del paciente. La ACS identifica las siguientes 4 clases \cite{hooper2022}:
+
+\begin{table}[H]
+\centering
+\caption{Clasificación del Shock Hipovolémico según la ACS}
+\label{tab:clasificacion-shock}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\textbf{Clase} & \textbf{Volumen aprox.} & \textbf{Frecuencia Cardíaca} & \textbf{Presión Arterial} & \textbf{Estado mental} \\ \hline
+I & <15\% & Normal & Normal & Ansioso \\ \hline
+II & 15-30\% & 100 BPM a 120 BPM & Normal o leve & Inquieto \\ \hline
+III & 30-40\% & Más de 120 BPM & Sistólica <90mmHg & Confuso \\ \hline
+IV & >40\% & Más de 120 BPM & <60mmHg & Inconsciente \\ \hline
+\end{tabular}
+\end{table}
+
+En cuanto a la fisiopatología del shock hemorrágico, este sigue una progresión definida. En sus fases iniciales, el sistema cardiovascular activa mecanismos homeostáticos como la taquicardia, vasoconstricción periférica y redistribución del flujo sanguíneo hacia el cerebro y corazón, esto con el fin de compensar la pérdida de sangre. Estos mecanismos, aunque permiten mantener una PAM estable durante las primeras etapas, genera un efecto máscara, donde el paciente parece estar estable hasta que ya se encuentra en una fase crítica. Un dato importante es que los signos clínicos mencionados anteriormente se suelen manifestar solo tras la pérdida de un 30-40\% del volumen circulante, lo que limita su capacidad para la detección temprana, caracterizada por hipotensión arterial, acidosis metabólica, coagulopatía y eventual colapso circulatorio.
+
+Por otro lado, cambios sutiles en parámetros fisiológicos, como el intervalo RR en el electrocardiograma, desaturaciones intermitentes de oxígeno o tendencias en la presión arterial media pueden ser clave para anticipar a la descompensación clínica por minutos o incluso horas, pero son difíciles de identificar de forma continua por el personal médico, ya sea por sobrecarga cognitiva o fatiga durante procedimientos prolongados y la variabilidad en la interpretación clínica.
+
+La Inteligencia Artificial (IA) aplicada a la predicción clínica se basa en el aprendizaje a partir de datos históricos, mediante modelos que identifican patrones complejos y predicen eventos futuros con un grado de incertidumbre cuantificable. En el contexto del shock hemorrágico, un modelo predictivo asigna una probabilidad de riesgo de que un paciente desarrolle esta condición crítica en los próximos minutos u horas, permitiendo intervenciones tempranas que pueden ser vitales. Para este fin, se han desarrollado diversos enfoques algorítmicos, cada uno con ventajas y limitaciones específicas según la naturaleza de los datos y los requisitos clínicos:
+
+\begin{itemize}
+    \item \textbf{Regresión logística con regularización Lasso:} la regresión logística es un modelo clásico para predicción binaria que estima la probabilidad de un evento mediante una función logística. Sin embargo, su principal limitación radica en la suposición de relaciones lineales entre las variables predictoras y el logaritmo de las probabilidades. Para superar parcialmente esta restricción y mejorar la interpretabilidad, se emplea la variante Lasso (Least Absolute Shrinkage and Selection Operator), que introduce una penalización L1 en la función de pérdida. Esta penalización fuerza a que algunos coeficientes se reduzcan exactamente a cero, lo que equivale a una selección automática de variables relevantes. Este enfoque no solo reduce la complejidad del modelo, sino que también mejora su capacidad de generalización, especialmente en escenarios con alta dimensionalidad o colinealidad entre predictores.
+
+    \item \textbf{K-Nearest Neighbors (KNN):} este algoritmo no paramétrico clasifica o predice un resultado basándose en la similitud entre un nuevo caso y los k casos más cercanos en el espacio de características. Aunque KNN es intuitivo y no requiere suposiciones sobre la forma funcional de las relaciones, su desempeño depende críticamente de la elección de k, la métrica de distancia utilizada y la escala de las variables. En contextos clínicos, donde los datos pueden ser ruidosos o escasos, KNN puede volverse inestable si no se normalizan adecuadamente las variables o si el número de vecinos no se ajusta con validación cruzada rigurosa. No obstante, su simplicidad lo hace útil como modelo de referencia o en combinación con técnicas de reducción de dimensionalidad.
+
+    \item \textbf{LightGBM (Light Gradient Boosting Machine):} como una implementación eficiente y escalable de los modelos de Gradient Boosting, LightGBM construye árboles de decisión de forma secuencial, donde cada nuevo árbol se entrena para corregir los errores residuales del modelo acumulado hasta ese punto. A diferencia de otros algoritmos de boosting, LightGBM utiliza una estrategia de crecimiento basada en hojas (leaf-wise) en lugar de niveles (level-wise), lo que le permite alcanzar mayor precisión con menor número de hojas. Además, incorpora técnicas como el muestreo basado en gradientes (Gradient-based One-Side Sampling, GOSS) y el agrupamiento exclusivo de características (Exclusive Feature Bundling, EFB), lo que reduce drásticamente el tiempo de entrenamiento y el uso de memoria sin sacrificar rendimiento. En entornos clínicos con grandes volúmenes de datos heterogéneos como señales vitales en tiempo real, laboratorios y antecedentes médicos, LightGBM ha demostrado ser particularmente eficaz para capturar interacciones no lineales y efectos de umbral, superando con frecuencia a modelos más simples en métricas de discriminación y calibración. El aprendizaje automático (ML), ha surgido como una herramienta clave en la medicina predictiva, permitiendo el análisis de grandes volúmenes de datos clínicos para identificar patrones que difícilmente serían vistos por un personal humano, aún con años de experiencia. A diferencia de los modelos estadísticos tradicionales, como regresión logística, los algoritmos de ML pueden manejar relaciones no lineales, lo que los hace mucho más adecuados para el contexto clínico, donde las relaciones son complejas.
+\end{itemize}
+
+Dado que la implementación de modelos de ML supone el uso de técnicas de caja negra, se utilizan técnicas para facilitar la interpretación:
+
+\begin{itemize}
+    \item \textbf{SHapley Additive exPlanations (SHAP):} esta técnica se basa en la teoría de juegos cooperativos de Shapley, asignando a cada variable un valor que representa su contribución marginal a la predicción final, considerando todas las posibles combinaciones de características. Los valores SHAP son coherentes, localmente exactos y aditivos, lo que permite no solo cuantificar la importancia global de una variable, sino también explicar predicciones individuales. En la práctica clínica, esto permite a los médicos ver, por ejemplo, que la presión arterial sistólica y la frecuencia cardíaca contribuyeron positivamente al riesgo de shock en un paciente específico, mientras que la saturación de oxígeno tuvo un efecto protector. Estas explicaciones facilitan la validación clínica del modelo y fomentan la adopción en la práctica real.
+
+    \item \textbf{Local Interpretable Model-agnostic Explanations (LIME):} complementa a SHAP al aproximar localmente el comportamiento de un modelo complejo mediante un modelo interpretable (como una regresión lineal) en torno a una predicción individual. Esto permite generar explicaciones intuitivas por ejemplo, destacando las tres variables más influyentes en una alerta de alto riesgo, aunque con menor rigor teórico que SHAP. Ambas técnicas son compatibles con cualquier modelo (model-agnostic) y son ampliamente utilizadas en aplicaciones médicas para garantizar que las decisiones automatizadas sean auditables y clínicamente razonables.
+\end{itemize}
+
+Para validar que un modelo sea clínicamente útil debe seguir estándares de desarrollo, para esto existe la declaración Transparent Reporting of a multivariable Prediction model for Individual Prognosis or Diagnosis (TRIPOD) \cite{collins2015}, diseñada para garantizar transparencia, calidad y reproductibilidad, esencial para evaluar la generalización del modelo en distintas poblaciones y sistemas de salud.
+
+\newpage
+
+% -----------------------------------------------------------------------------
+% 3. ESTADO DEL ARTE
+% -----------------------------------------------------------------------------
